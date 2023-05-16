@@ -14,10 +14,11 @@ import { MODAL_NAMES } from 'app/contexts/modals/types'
 import { WalletContext } from 'app/contexts/wallet'
 import { LogoIcon } from 'assets/icons/logo'
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const AppHeader: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<Element | null>(null)
-  const { isConnected } = useContext(WalletContext)
+  const { isConnected, accountId, logout } = useContext(WalletContext)
   const { openModal } = useContext(ModalsContext)
 
   const isMenuOpen = Boolean(anchorEl)
@@ -44,11 +45,12 @@ export const AppHeader: React.FC = () => {
         horizontal: 'right',
       }}
       open={isMenuOpen}
+      onClick={handleMenuClose}
       onClose={handleMenuClose}
     >
       <MenuItem>My account</MenuItem>
-      <MenuItem>Switch wallet</MenuItem>
-      <MenuItem>Logout</MenuItem>
+      <MenuItem onClick={() => navigator.clipboard.writeText(accountId)}>Copy address</MenuItem>
+      <MenuItem onClick={logout}>Disconnect</MenuItem>
     </Menu>
   )
 
@@ -82,7 +84,7 @@ export const AppHeader: React.FC = () => {
               display: 'flex',
             }}
           >
-            <Button>Mint nft</Button>
+            <Link to='/mint_nft'><Button>Mint nft</Button></Link>
             <Button>Borrowing</Button>
             <Button>Lending</Button>
             <Button>Docs</Button>
@@ -106,7 +108,7 @@ export const AppHeader: React.FC = () => {
                 component='div'
                 sx={{ fontSize: '14px', ml: '6px' }}
               >
-                account id...
+                {`${accountId.slice(0, 12)}...`}
               </Typography>
             </IconButton>
           )}

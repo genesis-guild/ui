@@ -21,6 +21,16 @@ export const SelectWalletModal: React.FC<ModalCommonProps> = ({
 }) => {
   const { connectMetamask, connectSuiWallet } = useContext(WalletContext)
 
+  const handleMetamaskClick = () => {
+    connectMetamask()
+    onClose()
+  }
+
+  const handleSuiClick = () => {
+    connectSuiWallet()
+    onClose()
+  }
+
   return (
     <Dialog open={isOpen} onClose={onClose}>
       <DialogTitle sx={{ fontWeight: 600 }}>Select wallet</DialogTitle>
@@ -29,12 +39,12 @@ export const SelectWalletModal: React.FC<ModalCommonProps> = ({
         <WalletItem
           name='Metamask'
           icon={<MetamaskLogoIcon width={32} height={32} />}
-          onClick={connectMetamask}
+          onClick={handleMetamaskClick}
         />
         <WalletItem
           name='Sui wallet'
           icon={<SuiLogoIcon width={32} height={32} />}
-          onClick={connectSuiWallet}
+          onClick={handleSuiClick}
         />
       </List>
     </Dialog>
