@@ -1,4 +1,4 @@
-import { MainLayout } from 'layouts/main'
+import { MainLayout } from 'processes/layouts/main'
 import { Routes, Route } from 'react-router-dom'
 
 interface RoutingProps {

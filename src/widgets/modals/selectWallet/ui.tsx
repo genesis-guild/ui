@@ -10,8 +10,8 @@ import {
   Avatar,
 } from '@mui/material'
 import { ModalCommonProps } from '../types'
-import { MetamaskLogoIcon } from 'assets/icons/metamask_logo'
-import { SuiLogoIcon } from 'assets/icons/sui_logo'
+import { MetamaskLogoIcon } from 'shared/assets/icons/metamask_logo'
+import { SuiLogoIcon } from 'shared/assets/icons/sui_logo'
 import { WalletContext } from 'app/contexts/wallet'
 import { useContext } from 'react'
 

@@ -12,7 +12,7 @@ import {
 import { ModalsContext } from 'app/contexts/modals'
 import { MODAL_NAMES } from 'app/contexts/modals/types'
 import { WalletContext } from 'app/contexts/wallet'
-import { LogoIcon } from 'assets/icons/logo'
+import { LogoIcon } from 'shared/assets/icons/logo'
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 
