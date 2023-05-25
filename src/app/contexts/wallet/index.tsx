@@ -1,4 +1,10 @@
-import { createContext, useCallback, useEffect, useState } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 
 const accountState = {
   isConnected: false,
@@ -10,7 +16,7 @@ const defaultState = {
   ...accountState,
   connectMetamask: () => {},
   connectSuiWallet: () => {},
-  logout: () => {}
+  logout: () => {},
 }
 
 export const WalletContext = createContext(defaultState)
@@ -20,10 +26,16 @@ interface WalletProviderProps {
 }
 
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
-  const state = localStorage.getItem("account") ? JSON.parse(localStorage.getItem("account")!) : null
+  const state = localStorage.getItem('account')
+    ? JSON.parse(localStorage.getItem('account')!)
+    : null
 
-  const [isConnected, setIsConnected] = useState(state?.isConnected || defaultState.isConnected)
-  const [accountId, setAccountId] = useState(state?.accountId || defaultState.accountId)
+  const [isConnected, setIsConnected] = useState(
+    state?.isConnected || defaultState.isConnected,
+  )
+  const [accountId, setAccountId] = useState(
+    state?.accountId || defaultState.accountId,
+  )
   const [chainId, setChainId] = useState(state?.chainId || defaultState.chainId)
 
   const connectMetamask = useCallback(() => {
@@ -42,18 +54,20 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
             return
           }
           setAccountId(accounts[0])
-        });
-  
+        })
+
         window.ethereum.on('chainChanged', (chainId: string) => {
           setChainId(chainId)
-        });
-
+        })
       })
       .catch((error: unknown) => console.log(error))
   }, [])
 
   useEffect(() => {
-    localStorage.setItem("account", JSON.stringify({ isConnected, accountId, chainId }))
+    localStorage.setItem(
+      'account',
+      JSON.stringify({ isConnected, accountId, chainId }),
+    )
   }, [isConnected, accountId, chainId])
 
   const logout = () => {
@@ -68,7 +82,14 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   return (
     <WalletContext.Provider
-      value={{ isConnected, connectMetamask, connectSuiWallet, logout, accountId, chainId }}
+      value={{
+        isConnected,
+        connectMetamask,
+        connectSuiWallet,
+        logout,
+        accountId,
+        chainId,
+      }}
     >
       {children}
     </WalletContext.Provider>
