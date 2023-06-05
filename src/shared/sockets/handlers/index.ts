@@ -1,6 +1,6 @@
 import { Socket } from 'socket.io-client'
-import { chainHandlers } from './chain'
+import { ChainHandlers } from './chain'
 
 export const initHandlers = (socket: Socket) => {
-  chainHandlers(socket)
+  new ChainHandlers(socket)
 }
