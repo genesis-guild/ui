@@ -116,7 +116,7 @@ export const AppHeader: React.FC = () => {
           {!isConnected && (
             <Button
               variant='contained'
-              size='large'
+              size='medium'
               onClick={() => openModal(MODAL_NAMES.SELECT_WALLET)}
             >
               Connect wallet
