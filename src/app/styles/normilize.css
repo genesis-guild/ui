@@ -11,6 +11,7 @@
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  background: #0B0B0D;
 }
 
 /* Sections
@@ -23,6 +24,9 @@ html {
 body {
   margin: 0;
   background: #f7f6ea;
+  max-width: 1600px;
+  font-family: Poppins;
+  margin: 0 auto;
 }
 
 /**

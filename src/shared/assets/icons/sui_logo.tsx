@@ -1,4 +1,4 @@
-import { IconProps } from 'assets/types'
+import { IconProps } from 'shared/assets/types'
 
 export const SuiLogoIcon = ({ ...props }: IconProps) => {
   return (
