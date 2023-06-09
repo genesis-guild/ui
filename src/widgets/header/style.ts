@@ -5,19 +5,8 @@ export const MenuContainer = styled.div`
   align-items: center;
   padding: 4px;
   gap: 4px;
-  background: #131419;
+  background: ${({ theme }) => theme.custom.colors.surface1.enable};
   border-radius: 15px;
   position: relative;
-  right: 50px;
-`
-
-export const MenuItemLink = styled.div`
-  font-family: 'Inter';
-  font-weight: 500;
-  padding: 10px 16px;
-  font-size: 15px;
-  * {
-    text-decoration: none;
-    color: white;
-  }
+  right: 30px;
 `

@@ -46,6 +46,9 @@ export const components: Theme['components'] = {
         }
       },
     },
+    defaultProps: {
+      disableRipple: true,
+    },
     variants: [
       {
         props: { variant: 'contained' },
@@ -86,6 +89,7 @@ export const components: Theme['components'] = {
         props: { variant: 'contained', color: 'tertiary' },
         style: {
           background: custom.colors.surface1.enable,
+          transition: 'background 300ms',
           '&:hover': {
             background: custom.colors.surface1.hover,
           },
@@ -113,6 +117,33 @@ export const components: Theme['components'] = {
         },
       },
     ],
+  },
+  MuiDialog: {
+    styleOverrides: {
+      paper: {
+        padding: '32px',
+        position: 'relative',
+        background: custom.colors.surface1.enable,
+        borderRadius: '25px',
+        boxShadow: custom.colors.effects.shadow_m,
+      },
+    },
+  },
+  MuiAppBar: {
+    styleOverrides: {
+      root: {
+        boxShadow: 'none',
+      },
+    },
+  },
+  MuiListItemButton: {
+    styleOverrides: {
+      root: {
+        '&:hover': {
+          background: custom.colors.surface1.hover,
+        },
+      },
+    },
   },
   MuiTypography: {
     variants: [

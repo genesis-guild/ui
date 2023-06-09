@@ -15,7 +15,7 @@ import { WalletContext } from 'app/contexts/wallet'
 import { LogoWhite } from 'shared/assets/icons/logo'
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MenuContainer, MenuItemLink } from './style'
+import { MenuContainer } from './style'
 import { ClaimStar } from 'shared/assets/icons/claim_star'
 
 export const AppHeader: React.FC = () => {
@@ -60,12 +60,17 @@ export const AppHeader: React.FC = () => {
 
   return (
     <Box
-      sx={{
-        flexGrow: 1,
-        background: '#0B0B0D',
-      }}
+      sx={theme => ({
+        background: theme.custom.colors.neutral.background,
+      })}
     >
-      <AppBar position='static' sx={{ background: '#0B0B0D', p: 0 }}>
+      <AppBar
+        position='static'
+        sx={theme => ({
+          background: theme.custom.colors.neutral.background,
+          p: 0,
+        })}
+      >
         <Toolbar
           sx={{
             justifyContent: 'space-between',
@@ -75,19 +80,28 @@ export const AppHeader: React.FC = () => {
           <LogoWhite />
 
           <MenuContainer>
-            <MenuItemLink>
-              <Link to='/mint_nft'>
-                <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                  <ClaimStar width={24} height={24} />
-                  <Box>Claim badge</Box>
-                </Box>
-              </Link>
-            </MenuItemLink>
+            <Link to='/mint_nft'>
+              <Button
+                variant='contained'
+                color='tertiary'
+                startIcon={<ClaimStar width={24} height={24} />}
+              >
+                Claim badge
+              </Button>
+            </Link>
 
-            <MenuItemLink>Games</MenuItemLink>
-            <MenuItemLink>Marketplace</MenuItemLink>
-            <MenuItemLink>Blog</MenuItemLink>
-            <MenuItemLink>Docs</MenuItemLink>
+            <Button variant='contained' color='tertiary'>
+              Games
+            </Button>
+            <Button variant='contained' color='tertiary'>
+              Marketplace
+            </Button>
+            <Button variant='contained' color='tertiary'>
+              Blog
+            </Button>
+            <Button variant='contained' color='tertiary'>
+              Docs
+            </Button>
           </MenuContainer>
 
           {isConnected && (

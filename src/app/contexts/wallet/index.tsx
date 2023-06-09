@@ -1,9 +1,14 @@
 import { createContext, useCallback, useEffect, useState } from 'react'
+import { WalletTag } from './types'
 
 const accountState = {
   isConnected: false,
   accountId: '',
   chainId: '',
+  detected: {
+    [WalletTag.Metamask]: false,
+    [WalletTag.Sui]: false,
+  },
 }
 
 const defaultState = {
@@ -24,6 +29,11 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     ? JSON.parse(localStorage.getItem('account')!)
     : null
 
+  const detected = {
+    [WalletTag.Metamask]: Boolean(window.ethereum),
+    [WalletTag.Sui]: Boolean(window.__suiet__),
+  }
+
   const [isConnected, setIsConnected] = useState(
     state?.isConnected || defaultState.isConnected,
   )
@@ -33,7 +43,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [chainId, setChainId] = useState(state?.chainId || defaultState.chainId)
 
   const connectMetamask = useCallback(() => {
-    if (!window.ethereum) {
+    if (!detected.metamask) {
       return
     }
     window.ethereum
@@ -78,6 +88,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     <WalletContext.Provider
       value={{
         isConnected,
+        detected,
         connectMetamask,
         connectSuiWallet,
         logout,

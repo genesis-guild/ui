@@ -67,6 +67,13 @@ declare module '@mui/material/styles' {
   }
 }
 
+declare module '@emotion/react' {
+  export interface Theme {
+    custom: CustomTheme
+    typography: Typography & MuiTheme['typography']
+  }
+}
+
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     links: true

@@ -2,7 +2,7 @@ import { Button, Typography } from '@mui/material'
 
 export const UI_KIT: React.FC = () => {
   return (
-    <div style={{ padding: '48px' }}>
+    <div>
       <h1>Typography</h1>
       <div>
         <Typography variant='h1'>H1–Poppins–Medium-52/64/0%</Typography>

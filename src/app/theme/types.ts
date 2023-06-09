@@ -1,4 +1,4 @@
-import { TypographyStyle } from '@mui/material'
+import { TypographyStyle, Theme } from '@mui/material'
 
 export interface CustomTheme {
   colors: {
@@ -73,6 +73,10 @@ export interface CustomTheme {
       error: string
     }
   }
+}
+
+export interface ThemeProps {
+  theme: Theme
 }
 
 // also need to update in vite-env.d.ts
