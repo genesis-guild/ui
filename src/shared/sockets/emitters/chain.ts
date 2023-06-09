@@ -1,7 +1,15 @@
 import { Socket } from 'socket.io-client'
-import { ChainEventName } from '../types'
-import { enf, emit } from './common'
+import { ChainEventName, ListDto } from '../types'
+import { Emitters } from './common'
 
-export const mint = (socket: Socket) => {
-  emit(socket, enf.getEventName(ChainEventName.MINT))
+class ChainEmitters extends Emitters {
+  mint(socket: Socket) {
+    this.emit(socket, this.getEventName(ChainEventName.MINT))
+  }
+
+  list(socket: Socket, listDto: ListDto) {
+    this.emit(socket, this.getEventName(ChainEventName.LIST), listDto)
+  }
 }
+
+export default new ChainEmitters()
