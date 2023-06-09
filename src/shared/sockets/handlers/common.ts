@@ -1,4 +1,7 @@
 import { EventNameFactory } from '../utils/event-name-factory'
-import { EventNamePostfix } from '../types'
-
-export const enf = new EventNameFactory(EventNamePostfix.HANDLER_POSTFIX)
+import { ChainType, EventNamePostfix } from '../types'
+export class Handlers extends EventNameFactory {
+  constructor() {
+    super(EventNamePostfix.HANDLER_POSTFIX)
+  }
+}

@@ -1,2 +1,1 @@
-export * from './chain'
-export * as chainEmitters from './chain'
+export { default as ChainEmitters } from './chain'
