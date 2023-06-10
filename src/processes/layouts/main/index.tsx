@@ -1,12 +1,14 @@
-import { Box } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 import { AppHeader } from 'widgets/header/ui'
+import { Background, Container } from './style'
 
 export const MainLayout = () => {
   return (
-    <Box>
-      <AppHeader />
-      <Outlet />
-    </Box>
+    <Background>
+      <Container>
+        <AppHeader />
+        <Outlet />
+      </Container>
+    </Background>
   )
 }

@@ -1,7 +1,7 @@
 import { MainLayout } from 'processes/layouts/main'
 import { Routes, Route } from 'react-router-dom'
-
-import { MintPage } from './mint'
+import { Main } from './main'
+import { UI_KIT } from './ui-kit'
 
 interface RoutingProps {
   isAuthenticated?: boolean
@@ -11,8 +11,8 @@ export const Routing: React.FC<RoutingProps> = () => {
   return (
     <Routes>
       <Route path='' element={<MainLayout />}>
-        <Route index element={<>Home</>} />
-        <Route path='/mint' element={<MintPage />} />
+        <Route index element={<Main />} />
+        <Route path='/ui-kit' element={<UI_KIT />} />
       </Route>
     </Routes>
   )

@@ -12,9 +12,11 @@ import {
 import { ModalsContext } from 'app/contexts/modals'
 import { MODAL_NAMES } from 'app/contexts/modals/types'
 import { WalletContext } from 'app/contexts/wallet'
-import { LogoIcon } from 'shared/assets/icons/logo'
+import { LogoWhite } from 'shared/assets/icons/logo'
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { MenuContainer } from './style'
+import { ClaimStar } from 'shared/assets/icons/claim_star'
 
 export const AppHeader: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<Element | null>(null)
@@ -49,46 +51,58 @@ export const AppHeader: React.FC = () => {
       onClose={handleMenuClose}
     >
       <MenuItem>My account</MenuItem>
-      <MenuItem onClick={() => navigator.clipboard.writeText(accountId)}>Copy address</MenuItem>
+      <MenuItem onClick={() => navigator.clipboard.writeText(accountId)}>
+        Copy address
+      </MenuItem>
       <MenuItem onClick={logout}>Disconnect</MenuItem>
     </Menu>
   )
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
-        <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='open drawer'
-            sx={{ mr: 2 }}
-          >
-            <LogoIcon width={28} height={28} />
-          </IconButton>
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ fontSize: '18px' }}
-          >
-            Genesis Guild
-          </Typography>
+    <Box
+      sx={theme => ({
+        background: theme.custom.colors.neutral.background,
+      })}
+    >
+      <AppBar
+        position='static'
+        sx={theme => ({
+          background: theme.custom.colors.neutral.background,
+          p: 0,
+        })}
+      >
+        <Toolbar
+          sx={{
+            justifyContent: 'space-between',
+            padding: '20px 60px',
+          }}
+        >
+          <LogoWhite />
 
-          <Box
-            sx={{
-              flexGrow: 1,
-              gap: '32px',
-              ml: '128px',
-              display: 'flex',
-            }}
-          >
-            <Link to='/mint_nft'><Button>Mint nft</Button></Link>
-            <Button>Borrowing</Button>
-            <Button>Lending</Button>
-            <Button>Docs</Button>
-          </Box>
+          <MenuContainer>
+            <Link to='/mint_nft'>
+              <Button
+                variant='contained'
+                color='tertiary'
+                startIcon={<ClaimStar width={24} height={24} />}
+              >
+                Claim badge
+              </Button>
+            </Link>
+
+            <Button variant='contained' color='tertiary'>
+              Games
+            </Button>
+            <Button variant='contained' color='tertiary'>
+              Marketplace
+            </Button>
+            <Button variant='contained' color='tertiary'>
+              Blog
+            </Button>
+            <Button variant='contained' color='tertiary'>
+              Docs
+            </Button>
+          </MenuContainer>
 
           {isConnected && (
             <IconButton
@@ -115,7 +129,8 @@ export const AppHeader: React.FC = () => {
 
           {!isConnected && (
             <Button
-              variant='outlined'
+              variant='contained'
+              size='medium'
               onClick={() => openModal(MODAL_NAMES.SELECT_WALLET)}
             >
               Connect wallet
