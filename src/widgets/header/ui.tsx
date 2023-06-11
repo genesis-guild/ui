@@ -41,6 +41,7 @@ export const AppHeader: React.FC = () => {
     <Box
       sx={theme => ({
         background: theme.custom.colors.neutral.background,
+        mt: '20px',
       })}
     >
       <AppBar
