@@ -1,6 +1,9 @@
 import { IconProps } from 'shared/assets/types'
 
-export const ClaimStar = ({ ...props }: IconProps) => {
+export const ClaimStar = ({
+  isWhite,
+  ...props
+}: IconProps & { isWhite?: boolean }) => {
   return (
     <svg
       {...props}
@@ -21,9 +24,9 @@ export const ClaimStar = ({ ...props }: IconProps) => {
           y2='21.6195'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#FFE603' />
-          <stop offset='0.701939' stop-color='#E2481A' />
-          <stop offset='1' stop-color='#DB2020' />
+          <stop stopColor={isWhite ? '#ffffff' : '#FFE603'} />
+          <stop offset='0.701939' stopColor={isWhite ? '#ffffff' : '#E2481A'} />
+          <stop offset='1' stopColor={isWhite ? '#ffffff' : '#DB2020'} />
         </linearGradient>
       </defs>
     </svg>

@@ -9,5 +9,5 @@ export const Container = styled.div`
 `
 
 export const Background = styled.div`
-  background: ${({ theme }) => theme.custom.colors.neutral.background};
+  background: #000000;
 `

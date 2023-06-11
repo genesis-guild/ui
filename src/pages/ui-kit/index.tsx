@@ -1,4 +1,6 @@
-import { Button, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
+import { ProfilePicture } from 'shared/components/profile_picture'
+import { AccountLvl, Sizes } from 'shared/components/profile_picture/types'
 
 export const UI_KIT: React.FC = () => {
   return (
@@ -172,6 +174,25 @@ export const UI_KIT: React.FC = () => {
           </Button>
         </div>
       </div>
+      <Typography variant='h1'>Account lvl</Typography>
+      <Box sx={{ display: 'flex', gap: '24px', p: 4 }}>
+        <ProfilePicture account_lvl={AccountLvl.NoLvl} />
+        <ProfilePicture account_lvl={AccountLvl._1} />
+        <ProfilePicture account_lvl={AccountLvl._2} />
+        <ProfilePicture account_lvl={AccountLvl._3} />
+        <ProfilePicture account_lvl={AccountLvl._4} />
+        <ProfilePicture account_lvl={AccountLvl._5} />
+        <ProfilePicture account_lvl={AccountLvl._6} />
+      </Box>
+      <Box sx={{ display: 'flex', gap: '24px', p: 4 }}>
+        <ProfilePicture account_lvl={AccountLvl.NoLvl} size={Sizes.large} />
+        <ProfilePicture account_lvl={AccountLvl._1} size={Sizes.large} />
+        <ProfilePicture account_lvl={AccountLvl._2} size={Sizes.large} />
+        <ProfilePicture account_lvl={AccountLvl._3} size={Sizes.large} />
+        <ProfilePicture account_lvl={AccountLvl._4} size={Sizes.large} />
+        <ProfilePicture account_lvl={AccountLvl._5} size={Sizes.large} />
+        <ProfilePicture account_lvl={AccountLvl._6} size={Sizes.large} />
+      </Box>
     </div>
   )
 }

@@ -35,8 +35,8 @@ export const SuiLogoIcon = ({ ...props }: IconProps) => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(8.30252e-08 5.09259) rotate(43.8004) scale(44.2931 44.3633)'
         >
-          <stop stop-color='#0058DD' />
-          <stop offset='1' stop-color='#67C8FF' />
+          <stop stopColor='#0058DD' />
+          <stop offset='1' stopColor='#67C8FF' />
         </radialGradient>
         <clipPath id='clip0_412_16616'>
           <rect width='44' height='44' fill='white' />

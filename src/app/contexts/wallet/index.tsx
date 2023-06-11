@@ -5,6 +5,7 @@ const accountState = {
   isConnected: false,
   accountId: '',
   chainId: '',
+  walletTag: '' as WalletTag,
   detected: {
     [WalletTag.Metamask]: false,
     [WalletTag.Sui]: false,
@@ -37,9 +38,15 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [isConnected, setIsConnected] = useState(
     state?.isConnected || defaultState.isConnected,
   )
+
+  const [walletTag, setWalletTag] = useState(
+    state?.walletTag || defaultState.walletTag,
+  )
+
   const [accountId, setAccountId] = useState(
     state?.accountId || defaultState.accountId,
   )
+
   const [chainId, setChainId] = useState(state?.chainId || defaultState.chainId)
 
   const connectMetamask = useCallback(() => {
@@ -51,6 +58,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       .then((res: string[]) => {
         setIsConnected(true)
         setAccountId(res[0])
+        setWalletTag(WalletTag.Metamask)
 
         window.ethereum.on('accountsChanged', (accounts: string[]) => {
           if (!accounts.length) {
@@ -70,9 +78,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   useEffect(() => {
     localStorage.setItem(
       'account',
-      JSON.stringify({ isConnected, accountId, chainId }),
+      JSON.stringify({ isConnected, accountId, chainId, walletTag }),
     )
-  }, [isConnected, accountId, chainId])
+  }, [isConnected, accountId, chainId, walletTag])
 
   const logout = () => {
     setIsConnected(false)
@@ -92,6 +100,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         connectMetamask,
         connectSuiWallet,
         logout,
+        walletTag,
         accountId,
         chainId,
       }}

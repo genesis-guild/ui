@@ -136,6 +136,24 @@ export const components: Theme['components'] = {
       },
     },
   },
+  MuiPopover: {
+    styleOverrides: {
+      paper: {
+        background: custom.colors.surface2.enable,
+        borderRadius: '15px',
+        padding: '8px 16px',
+      },
+    },
+  },
+  MuiMenuItem: {
+    styleOverrides: {
+      root: {
+        '&:hover': {
+          background: custom.colors.surface1.hover,
+        },
+      },
+    },
+  },
   MuiListItemButton: {
     styleOverrides: {
       root: {

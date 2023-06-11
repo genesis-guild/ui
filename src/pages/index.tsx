@@ -12,6 +12,11 @@ export const Routing: React.FC<RoutingProps> = () => {
     <Routes>
       <Route path='' element={<MainLayout />}>
         <Route index element={<Main />} />
+        <Route path='/claim-badge' element={<>claim badge</>} />
+        <Route path='/games' element={<>games</>} />
+        <Route path='/marketplace/:type' element={<>marketplace</>} />
+        <Route path='/blog' element={<>blog</>} />
+        <Route path='/docs' element={<>docs</>} />
         <Route path='/ui-kit' element={<UI_KIT />} />
       </Route>
     </Routes>

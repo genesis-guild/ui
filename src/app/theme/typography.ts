@@ -45,14 +45,14 @@ export const typography: Theme['typography'] = {
   },
   button: {
     fontFamily: 'Inter',
-    fontWeight: '600',
+    fontWeight: '500',
     fontSize: '15px',
     lineHeight: '24px',
     fontStyle: 'normal',
   },
   links: {
     fontFamily: 'Inter',
-    fontWeight: '500',
+    fontWeight: '400',
     fontSize: '15px',
     lineHeight: '24px',
     fontStyle: 'normal',
