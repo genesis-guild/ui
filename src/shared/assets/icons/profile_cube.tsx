@@ -1,13 +1,15 @@
 import { AccountLvl } from 'shared/components/profile_picture/types'
 import { IconProps } from '../types'
 
-export const ProfileCube = ({ account_lvl }: { account_lvl: AccountLvl }) => {
+export const ProfileCube = ({
+  account_lvl,
+  ...props
+}: { account_lvl: AccountLvl } & IconProps) => {
   switch (account_lvl) {
     case AccountLvl._1:
       return (
         <svg
-          width='29'
-          height='32'
+          {...props}
           viewBox='0 0 29 32'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
@@ -199,8 +201,7 @@ export const ProfileCube = ({ account_lvl }: { account_lvl: AccountLvl }) => {
     case AccountLvl._2:
       return (
         <svg
-          width='29'
-          height='32'
+          {...props}
           viewBox='0 0 29 32'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
@@ -403,8 +404,7 @@ export const ProfileCube = ({ account_lvl }: { account_lvl: AccountLvl }) => {
     case AccountLvl._3:
       return (
         <svg
-          width='29'
-          height='32'
+          {...props}
           viewBox='0 0 29 32'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
@@ -603,8 +603,7 @@ export const ProfileCube = ({ account_lvl }: { account_lvl: AccountLvl }) => {
     case AccountLvl._4:
       return (
         <svg
-          width='29'
-          height='32'
+          {...props}
           viewBox='0 0 29 32'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
@@ -806,8 +805,7 @@ export const ProfileCube = ({ account_lvl }: { account_lvl: AccountLvl }) => {
     case AccountLvl._5:
       return (
         <svg
-          width='29'
-          height='32'
+          {...props}
           viewBox='0 0 29 32'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
@@ -1006,8 +1004,7 @@ export const ProfileCube = ({ account_lvl }: { account_lvl: AccountLvl }) => {
     case AccountLvl._6:
       return (
         <svg
-          width='29'
-          height='32'
+          {...props}
           viewBox='0 0 29 32'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
@@ -1221,8 +1218,7 @@ export const ProfileCube = ({ account_lvl }: { account_lvl: AccountLvl }) => {
     default:
       return (
         <svg
-          width='29'
-          height='32'
+          {...props}
           viewBox='0 0 29 32'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'

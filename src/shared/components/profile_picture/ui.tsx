@@ -41,7 +41,7 @@ export const ProfilePicture: React.FC<ProfilePictureProps> = ({
         )}
         {size === Sizes.large && (
           <LvlCube color={lvlColor}>
-            <ProfileCube account_lvl={account_lvl} />
+            <ProfileCube width={32} height={32} account_lvl={account_lvl} />
           </LvlCube>
         )}
       </LvlBorder>
