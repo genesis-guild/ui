@@ -1,4 +1,4 @@
-export const LogoWhite = () => (
+export const LogoWhite = (): JSX.Element => (
   <svg
     width='257'
     height='32'

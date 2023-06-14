@@ -1,4 +1,4 @@
-export const Coin = () => {
+export const Coin = (): JSX.Element => {
   return (
     <svg
       width='214'
@@ -17,8 +17,8 @@ export const Coin = () => {
         />
       </g>
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M107.5 21.1815C64.7772 24.0109 31 59.5609 31 103C31 146.439 64.7772 181.989 107.5 184.818C105.682 184.939 103.848 185 102 185C56.7126 185 20 148.287 20 103C20 57.7127 56.7127 21 102 21C103.848 21 105.682 21.0611 107.5 21.1815Z'
         fill='#BD3C04'
       />
@@ -30,9 +30,9 @@ export const Coin = () => {
           width='165'
           height='166'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feBlend
             mode='normal'
             in='SourceGraphic'
@@ -66,8 +66,8 @@ export const Coin = () => {
           y2='203.805'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#651B04' />
-          <stop offset='1' stop-color='#CCBB21' />
+          <stop stopColor='#651B04' />
+          <stop offset='1' stopColor='#CCBB21' />
         </linearGradient>
         <linearGradient
           id='paint1_linear_415_43844'
@@ -77,8 +77,8 @@ export const Coin = () => {
           y2='203.805'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#DC400F' />
-          <stop offset='1' stop-color='#FFEB3A' />
+          <stop stopColor='#DC400F' />
+          <stop offset='1' stopColor='#FFEB3A' />
         </linearGradient>
         <linearGradient
           id='paint2_linear_415_43844'
@@ -88,8 +88,8 @@ export const Coin = () => {
           y2='183.742'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#FFEB3A' />
-          <stop offset='1' stop-color='#DC400F' />
+          <stop stopColor='#FFEB3A' />
+          <stop offset='1' stopColor='#DC400F' />
         </linearGradient>
       </defs>
     </svg>

@@ -3,7 +3,7 @@ import { IconProps } from 'shared/assets/types'
 export const ClaimStar = ({
   isWhite,
   ...props
-}: IconProps & { isWhite?: boolean }) => {
+}: IconProps & { isWhite?: boolean }): JSX.Element => {
   return (
     <svg {...props} fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
       <path

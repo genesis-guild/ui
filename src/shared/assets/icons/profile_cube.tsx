@@ -2,10 +2,10 @@ import { AccountLvl } from 'shared/components/profile_picture/types'
 
 import { IconProps } from '../types'
 
-export const ProfileCube: React.FC<{ account_lvl: AccountLvl } & IconProps> = ({
+export const ProfileCube = ({
   account_lvl,
   ...props
-}) => {
+}: { account_lvl: AccountLvl } & IconProps): JSX.Element => {
   switch (account_lvl) {
     case AccountLvl._1:
       return (

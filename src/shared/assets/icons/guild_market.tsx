@@ -1,6 +1,6 @@
 import { IconProps } from 'shared/assets/types'
 
-export const GuildMarket = ({ ...props }: IconProps) => {
+export const GuildMarket = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
@@ -16,8 +16,8 @@ export const GuildMarket = ({ ...props }: IconProps) => {
           y2='11.6407'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#0AFF6C' />
-          <stop offset='1' stop-color='#06721D' />
+          <stop stopColor='#0AFF6C' />
+          <stop offset='1' stopColor='#06721D' />
         </linearGradient>
       </defs>
     </svg>

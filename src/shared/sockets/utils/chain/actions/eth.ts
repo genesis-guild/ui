@@ -1,12 +1,12 @@
 import { TransactionReqParamsType } from 'shared/sockets/types'
 
-export const ethSendTransaction = (reqParams: TransactionReqParamsType) => {
-  console.log(window.ethereum, reqParams)
-
+export const ethSendTransaction = (
+  reqParams: TransactionReqParamsType,
+): void => {
   window.ethereum
     .request({
       method: 'eth_sendTransaction',
       params: [reqParams],
     })
-    .then(console.log)
+    .then()
 }

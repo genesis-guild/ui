@@ -1,6 +1,6 @@
 import { IconProps } from 'shared/assets/types'
 
-export const Players = ({ ...props }: IconProps) => {
+export const Players = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
@@ -16,8 +16,8 @@ export const Players = ({ ...props }: IconProps) => {
           y2='6.29405'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#6100FF' />
-          <stop offset='1' stop-color='#BB4BFF' />
+          <stop stopColor='#6100FF' />
+          <stop offset='1' stopColor='#BB4BFF' />
         </linearGradient>
       </defs>
     </svg>
