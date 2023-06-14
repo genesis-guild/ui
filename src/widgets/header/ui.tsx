@@ -55,7 +55,9 @@ export const AppHeader: React.FC = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '20px 60px',
+            padding: '20px 0',
+            ml: '-24px',
+            mr: '-24px',
           }}
         >
           <Box

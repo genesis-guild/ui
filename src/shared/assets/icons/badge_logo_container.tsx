@@ -2,12 +2,7 @@ import { IconProps } from 'shared/assets/types'
 
 export const BadgeLogoContainer = ({ ...props }: IconProps) => {
   return (
-    <svg
-      {...props}
-      viewBox='0 0 114 127'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
+    <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
       <g filter='url(#filter0_d_201_15377)'>
         <path
           d='M54.9643 1.17532C56.224 0.448028 57.776 0.44803 59.0357 1.17532L104.328 27.3247C105.587 28.052 106.363 29.3961 106.363 30.8506V83.1494C106.363 84.6039 105.587 85.948 104.328 86.6753L59.0357 112.825C57.776 113.552 56.224 113.552 54.9643 112.825L9.67226 86.6753C8.41256 85.948 7.63655 84.6039 7.63655 83.1494V30.8506C7.63655 29.3961 8.41256 28.052 9.67227 27.3247L54.9643 1.17532Z'

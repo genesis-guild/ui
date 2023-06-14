@@ -30,12 +30,33 @@ export const BadgeTitle = styled.div`
   background: ${({ color }) => color};
 `
 export const BadgeLevel = styled.div`
-  background: ${({ theme }) => theme.custom.colors.surface2.enable};
-  border: 4px solid ${({ theme }) => theme.custom.colors.surface1.enable};
   position: absolute;
-  padding: 3px 78px;
-  border-radius: 20px 20px 0px 0px;
-  bottom: -4px;
+  padding: 8px 74px;
+  perspective: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  bottom: 0px;
+
+  & > * {
+    z-index: 1;
+    position: relative;
+    top: 6px;
+  }
+
+  &:before {
+    content: '';
+    width: 100%;
+    border-radius: 16px 16px 0px 0px;
+    height: 100%;
+    background: ${({ theme }) => theme.custom.colors.surface2.enable};
+
+    border: 4px solid ${({ theme }) => theme.custom.colors.surface1.enable};
+    transform: rotateX(40deg);
+    transform-origin: 50% 100%;
+    position: absolute;
+  }
 `
 
 export const Cube = styled.div`
