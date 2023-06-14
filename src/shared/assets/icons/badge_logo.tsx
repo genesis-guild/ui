@@ -2,7 +2,12 @@ import { IconProps } from 'shared/assets/types'
 
 export const BadgeLogo = ({ ...props }: IconProps): JSX.Element => {
   return (
-    <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      {...props}
+      viewBox='0 0 53 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M25.8632 0H29.5917L24.3328 5.21562H8.95659L7.43643 6.72326L13.4349 12.6723H19.6798L18.0364 11.0424H14.1025L11.6271 8.59762L13.5171 6.72326H21.1486L27.0341 12.5908H25.9453L30.6702 17.2767H18.0775L18.7452 17.9389L11.2779 17.9083L0 6.72326L6.77907 0H14.3388L15.3659 1.01868H24.836L25.8632 0Z'
         fill='white'
