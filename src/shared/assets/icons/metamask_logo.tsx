@@ -2,7 +2,12 @@ import { IconProps } from 'shared/assets/types'
 
 export const MetamaskLogoIcon = ({ ...props }: IconProps): JSX.Element => {
   return (
-    <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      {...props}
+      fill='none'
+      viewBox='0 0 44 44'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M37.7691 5.08301L24.1016 15.2341L26.629 9.24508L37.7691 5.08301Z'
         fill='#E2761B'

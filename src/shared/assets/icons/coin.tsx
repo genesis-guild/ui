@@ -1,8 +1,9 @@
-export const Coin = (): JSX.Element => {
+import { IconProps } from '../types'
+
+export const Coin = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg
-      width='214'
-      height='206'
+      {...props}
       viewBox='0 0 214 206'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'

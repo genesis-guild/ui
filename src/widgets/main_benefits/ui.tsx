@@ -172,7 +172,7 @@ export const MainBenefits: React.FC = () => {
                           <VentureCapitalsCardContainer
                             show={tabsValue === TabLabels.VentureCapitals}
                           >
-                            <Coin />
+                            <Coin width={214} height={206} />
                           </VentureCapitalsCardContainer>
                         </Elipse>
                       </ElipseBorder>

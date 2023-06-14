@@ -37,12 +37,13 @@ export const SelectWalletModal: React.FC<ModalCommonProps> = ({
     <Dialog open={isOpen} onClose={onClose}>
       <Typography variant='h4'>Connect wallet</Typography>
       <Box
-        sx={{
+        sx={theme => ({
           position: 'absolute',
           top: '24px',
           right: '24px',
           cursor: 'pointer',
-        }}
+          color: theme.custom.colors.neutral.secondary_icon,
+        })}
         onClick={onClose}
       >
         <Close width={14} height={14} />
