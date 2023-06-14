@@ -1,6 +1,6 @@
 import { IconProps } from 'shared/assets/types'
 
-export const VentureCapitals = ({ ...props }: IconProps) => {
+export const VentureCapitals = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
@@ -16,8 +16,8 @@ export const VentureCapitals = ({ ...props }: IconProps) => {
           y2='21.7869'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#DC400F' />
-          <stop offset='1' stop-color='#FFEB3A' />
+          <stop stopColor='#DC400F' />
+          <stop offset='1' stopColor='#FFEB3A' />
         </linearGradient>
       </defs>
     </svg>

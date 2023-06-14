@@ -1,6 +1,6 @@
 import { IconProps } from 'shared/assets/types'
 
-export const BadgeLogo = ({ ...props }: IconProps) => {
+export const BadgeLogo = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path

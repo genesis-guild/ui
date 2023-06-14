@@ -1,5 +1,5 @@
-import { Button as MuiButton, Typography } from '@mui/material'
 import styled from '@emotion/styled'
+import { Button as MuiButton, Typography } from '@mui/material'
 import { ClaimStar } from 'shared/assets/icons/claim_star'
 
 interface ClaimBadgeButtonProps {

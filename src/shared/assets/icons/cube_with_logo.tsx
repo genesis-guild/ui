@@ -1,6 +1,6 @@
 import { IconProps } from 'shared/assets/types'
 
-export const CubeWithLogo = ({ ...props }: IconProps) => {
+export const CubeWithLogo = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
       <g filter='url(#filter0_d_415_43422)'>
@@ -73,9 +73,9 @@ export const CubeWithLogo = ({ ...props }: IconProps) => {
           width='96.8658'
           height='102.012'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -109,8 +109,8 @@ export const CubeWithLogo = ({ ...props }: IconProps) => {
           y2='31.41'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#6100FF' />
-          <stop offset='1' stop-color='#BB4BFF' />
+          <stop stopColor='#6100FF' />
+          <stop offset='1' stopColor='#BB4BFF' />
         </linearGradient>
         <linearGradient
           id='paint1_linear_415_43422'
@@ -120,8 +120,8 @@ export const CubeWithLogo = ({ ...props }: IconProps) => {
           y2='43.8438'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#6100FF' />
-          <stop offset='1' stop-color='#BB4BFF' />
+          <stop stopColor='#6100FF' />
+          <stop offset='1' stopColor='#BB4BFF' />
         </linearGradient>
         <linearGradient
           id='paint2_linear_415_43422'
@@ -131,8 +131,8 @@ export const CubeWithLogo = ({ ...props }: IconProps) => {
           y2='42.6029'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#6100FF' />
-          <stop offset='1' stop-color='#BB4BFF' />
+          <stop stopColor='#6100FF' />
+          <stop offset='1' stopColor='#BB4BFF' />
         </linearGradient>
       </defs>
     </svg>

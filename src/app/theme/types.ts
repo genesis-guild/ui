@@ -1,4 +1,4 @@
-import { TypographyStyle, Theme } from '@mui/material'
+import { Theme, TypographyStyle } from '@mui/material'
 
 export interface CustomTheme {
   colors: {

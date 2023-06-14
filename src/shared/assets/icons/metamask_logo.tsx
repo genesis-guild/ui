@@ -1,103 +1,103 @@
 import { IconProps } from 'shared/assets/types'
 
-export const MetamaskLogoIcon = ({ ...props }: IconProps) => {
+export const MetamaskLogoIcon = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
         d='M37.7691 5.08301L24.1016 15.2341L26.629 9.24508L37.7691 5.08301Z'
         fill='#E2761B'
         stroke='#E2761B'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M6.21769 5.08301L19.7753 15.3302L17.3715 9.24508L6.21769 5.08301ZM32.8522 28.6131L29.2121 34.19L37.0005 36.3329L39.2395 28.7367L32.8522 28.6131ZM4.77539 28.7367L7.00066 36.3329L14.7891 34.19L11.149 28.6131L4.77539 28.7367Z'
         fill='#E4761B'
         stroke='#E4761B'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M14.3481 19.1904L12.1777 22.4733L19.9112 22.8167L19.6365 14.5063L14.3481 19.1904ZM29.6365 19.1904L24.2793 14.4102L24.1008 22.8167L31.8205 22.4733L29.6365 19.1904ZM14.7876 34.1903L19.4305 31.9238L15.4195 28.792L14.7876 34.1903ZM24.5541 31.9238L29.2106 34.1903L28.565 28.792L24.5541 31.9238Z'
         fill='#E4761B'
         stroke='#E4761B'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M29.2111 34.1903L24.5545 31.9238L24.9254 34.9595L24.8842 36.237L29.2111 34.1903ZM14.7881 34.1903L19.115 36.237L19.0875 34.9595L19.4309 31.9238L14.7881 34.1903Z'
         fill='#D7C1B3'
         stroke='#D7C1B3'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M19.1842 26.7866L15.3105 25.6465L18.0441 24.3965L19.1842 26.7866ZM24.8023 26.7866L25.9424 24.3965L28.6896 25.6465L24.8023 26.7866Z'
         fill='#233447'
         stroke='#233447'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M14.7885 34.1896L15.4479 28.6127L11.1484 28.7364L14.7885 34.1896ZM28.5522 28.6127L29.2116 34.1896L32.8516 28.7364L28.5522 28.6127ZM31.8214 22.4727L24.1017 22.8161L24.816 26.7858L25.9561 24.3957L28.7033 25.6457L31.8214 22.4727ZM15.3105 25.6457L18.0578 24.3957L19.1841 26.7858L19.9121 22.8161L12.1787 22.4727L15.3105 25.6457Z'
         fill='#CD6116'
         stroke='#CD6116'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M12.1777 22.4727L15.4195 28.7913L15.3096 25.6457L12.1777 22.4727ZM28.7024 25.6457L28.565 28.7913L31.8205 22.4727L28.7024 25.6457ZM19.9112 22.8161L19.1832 26.7858L20.0898 31.4699L20.2958 25.3023L19.9112 22.8161ZM24.1008 22.8161L23.7299 25.2886L23.8947 31.4699L24.815 26.7858L24.1008 22.8161Z'
         fill='#E4751F'
         stroke='#E4751F'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M24.816 26.7866L23.8957 31.4706L24.555 31.9239L28.566 28.7921L28.7034 25.6465L24.816 26.7866ZM15.3105 25.6465L15.4204 28.7921L19.4314 31.9239L20.0907 31.4706L19.1842 26.7866L15.3105 25.6465Z'
         fill='#F6851B'
         stroke='#F6851B'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M24.8842 36.2371L24.9254 34.9597L24.582 34.6575H19.4035L19.0875 34.9597L19.115 36.2371L14.7881 34.1904L16.2991 35.4267L19.3622 37.5558H24.6232L27.7001 35.4267L29.2111 34.1904L24.8842 36.2371Z'
         fill='#C0AD9E'
         stroke='#C0AD9E'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M24.5549 31.924L23.8956 31.4707H20.0906L19.4313 31.924L19.0879 34.9597L19.4038 34.6575H24.5824L24.9258 34.9597L24.5549 31.924Z'
         fill='#161616'
         stroke='#161616'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M38.3461 15.8934L39.5137 10.289L37.7692 5.08301L24.5549 14.8907L29.6373 19.1901L36.8214 21.2917L38.4148 19.4373L37.7279 18.9428L38.8268 17.9401L37.9752 17.2808L39.0741 16.4428L38.3461 15.8934ZM4.48633 10.289L5.65391 15.8934L4.91215 16.4428L6.01105 17.2808L5.17314 17.9401L6.27203 18.9428L5.58522 19.4373L7.16489 21.2917L14.3489 19.1901L19.4313 14.8907L6.21709 5.08301L4.48633 10.289Z'
         fill='#763D16'
         stroke='#763D16'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M36.822 21.2918L29.6379 19.1901L31.822 22.4731L28.5665 28.7917L32.8522 28.7368H39.2395L36.822 21.2918ZM14.3495 19.1901L7.16549 21.2918L4.77539 28.7368H11.149L15.421 28.7917L12.1792 22.4731L14.3495 19.1901ZM24.1022 22.8165L24.5555 14.8907L26.6434 9.24512H17.3715L19.4319 14.8907L19.9127 22.8165L20.0775 25.3165L20.0913 31.4703H23.8962L23.9237 25.3165L24.1022 22.8165Z'
         fill='#F6851B'
         stroke='#F6851B'
-        stroke-width='0.0998997'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='0.0998997'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   )

@@ -1,6 +1,6 @@
 import { IconProps } from '../types'
 
-export const UserProfile = ({ ...props }: IconProps) => {
+export const UserProfile = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg
       width={props.width}
@@ -22,9 +22,9 @@ export const UserProfile = ({ ...props }: IconProps) => {
           width={props.width}
           height={props.height}
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'

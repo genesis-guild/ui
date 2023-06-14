@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom'
-import { AppHeader } from 'widgets/header/ui'
-import { Background, Container } from './style'
 import { Footer } from 'widgets/footer'
+import { AppHeader } from 'widgets/header/ui'
 
-export const MainLayout = () => {
+import { Background, Container } from './style'
+
+export const MainLayout: React.FC = () => {
   return (
     <Background>
       <Container>

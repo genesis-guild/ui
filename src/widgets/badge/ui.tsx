@@ -1,5 +1,10 @@
-import { useTheme, Button, Typography } from '@mui/material'
+import { Button, Typography, useTheme } from '@mui/material'
+import { BadgeLogo } from 'shared/assets/icons/badge_logo'
+import { BadgeLogoContainer } from 'shared/assets/icons/badge_logo_container'
+import { ProfileCube } from 'shared/assets/icons/profile_cube'
+import { AccountLvl } from 'shared/components/profile_picture/types'
 import { getLvlColor } from 'shared/utils/getLvlColor'
+
 import {
   Background,
   BadgeLevel,
@@ -8,16 +13,13 @@ import {
   Cube,
   CubeLogo,
 } from './style'
-import { AccountLvl } from 'shared/components/profile_picture/types'
-import { ProfileCube } from 'shared/assets/icons/profile_cube'
-import { BadgeLogoContainer } from 'shared/assets/icons/badge_logo_container'
-import { BadgeLogo } from 'shared/assets/icons/badge_logo'
 
 export const Badge: React.FC = () => {
   const theme = useTheme()
   const accountLvl = AccountLvl.NoLvl
   const color = getLvlColor(theme, accountLvl)
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (accountLvl === AccountLvl.NoLvl) {
     return (
       <Background color={theme.custom.colors.primary.enable}>

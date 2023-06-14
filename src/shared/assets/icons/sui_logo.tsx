@@ -1,9 +1,9 @@
 import { IconProps } from 'shared/assets/types'
 
-export const SuiLogoIcon = ({ ...props }: IconProps) => {
+export const SuiLogoIcon = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <g clip-path='url(#clip0_412_16616)'>
+      <g clipPath='url(#clip0_412_16616)'>
         <path
           d='M27.5 0H16.5C7.3873 0 0 7.3873 0 16.5V27.5C0 36.6127 7.3873 44 16.5 44H27.5C36.6127 44 44 36.6127 44 27.5V16.5C44 7.3873 36.6127 0 27.5 0Z'
           fill='url(#paint0_radial_412_16616)'

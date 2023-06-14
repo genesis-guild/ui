@@ -43,7 +43,7 @@ export const UI_KIT: React.FC = () => {
       </div>
       <Typography variant='h1'>Buttons</Typography>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-        <div style={{ width: '15%', padding: 1 }}></div>
+        <div style={{ width: '15%', padding: 1 }} />
         <div style={{ width: '15%', padding: 1 }}>
           <Typography variant='h4' style={{ padding: 2 }}>
             Enable

@@ -1,4 +1,5 @@
 import { Socket } from 'socket.io-client'
+
 import { ChainEventName, ChainType, TransactionReqParamsType } from '../types'
 import { signTransaction } from '../utils/chain'
 import { Handlers } from './common'
@@ -12,13 +13,11 @@ export class ChainHandlers extends Handlers {
     this.init()
   }
 
-  init() {
-    console.log('ChainHandlers init')
-
+  init(): void {
     this.handleSignTransaction()
   }
 
-  handleSignTransaction() {
+  handleSignTransaction(): void {
     this.socket.on(
       this.getEventName(ChainEventName.SIGN_TRANSACTION),
       (chainType: ChainType, reqParams: TransactionReqParamsType) => {

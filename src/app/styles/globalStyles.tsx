@@ -1,8 +1,9 @@
 import { Global, css } from '@emotion/react'
 import { useTheme } from '@mui/material'
 
-export const GlobalStyle = () => {
+export const GlobalStyle: React.FC = () => {
   const theme = useTheme()
+
   return (
     <Global
       styles={css`

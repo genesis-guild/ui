@@ -1,3 +1,15 @@
+import { Box, Typography, useTheme } from '@mui/material'
+import { useState } from 'react'
+import { Coin } from 'shared/assets/icons/coin'
+import { CubeWithLogo } from 'shared/assets/icons/cube_with_logo'
+import { Games } from 'shared/assets/icons/games'
+import { GamesCardIcon } from 'shared/assets/icons/games_card'
+import { NftOwners } from 'shared/assets/icons/nft_owners'
+import { NftOwnersCard } from 'shared/assets/icons/nft_owners_card'
+import { Players } from 'shared/assets/icons/players'
+import { UserProfile } from 'shared/assets/icons/user_profile'
+import { VentureCapitals } from 'shared/assets/icons/venture_capitals'
+
 import {
   BottomText,
   ColoredElipse,
@@ -26,29 +38,20 @@ import {
   TopText,
   VentureCapitalsCardContainer,
 } from './style'
-import default_profile from 'shared/assets/images/default_profile.png'
-import { TabLabels } from './types'
-import { Players } from 'shared/assets/icons/players'
-import { VentureCapitals } from 'shared/assets/icons/venture_capitals'
-import { NftOwners } from 'shared/assets/icons/nft_owners'
-import { Games } from 'shared/assets/icons/games'
-import { useState } from 'react'
-import { Box, Typography, useTheme } from '@mui/material'
-import { UserProfile } from 'shared/assets/icons/user_profile'
-import { CubeWithLogo } from 'shared/assets/icons/cube_with_logo'
-import { NftOwnersCard } from 'shared/assets/icons/nft_owners_card'
-import { GamesCardIcon } from 'shared/assets/icons/games_card'
-import { Coin } from 'shared/assets/icons/coin'
+import { CardProps, TabLabels } from './types'
 
 export const MainBenefits: React.FC = () => {
   const theme = useTheme()
   const [tabsValue, setTabsValue] = useState(TabLabels.Players)
 
-  const handleTabsChanged = (_: React.SyntheticEvent, value: TabLabels) => {
+  const handleTabsChanged = (
+    _: React.SyntheticEvent,
+    value: TabLabels,
+  ): void => {
     setTabsValue(value)
   }
 
-  const getTabColor = (tab: TabLabels) => {
+  const getTabColor = (tab: TabLabels): string => {
     switch (tab) {
       case TabLabels.Players:
         return theme.custom.colors.primary.enable
@@ -160,9 +163,7 @@ export const MainBenefits: React.FC = () => {
                     <Elipse>
                       <ElipseBorder width='326px' height='326px'>
                         <Elipse>
-                          <ColoredElipse
-                            color={getTabColor(tabsValue)}
-                          ></ColoredElipse>
+                          <ColoredElipse color={getTabColor(tabsValue)} />
                           <PlayerCard show={tabsValue === TabLabels.Players} />
                           <OwnerNftsCard
                             show={tabsValue === TabLabels.OwnersNfts}
@@ -187,7 +188,7 @@ export const MainBenefits: React.FC = () => {
   )
 }
 
-const PlayerCard = ({ show = false }) => {
+const PlayerCard: React.FC<CardProps> = ({ show = false }) => {
   const theme = useTheme()
 
   return (
@@ -217,7 +218,7 @@ const PlayerCard = ({ show = false }) => {
   )
 }
 
-const OwnerNftsCard = ({ show = false }) => {
+const OwnerNftsCard: React.FC<CardProps> = ({ show = false }) => {
   return (
     <NFTOwnesrCardContainer show={show}>
       <NFTOwnesrCardContent>
@@ -240,7 +241,7 @@ const OwnerNftsCard = ({ show = false }) => {
   )
 }
 
-const GamesCard = ({ show = false }) => {
+const GamesCard: React.FC<CardProps> = ({ show = false }) => {
   return (
     <GamesCardContainer show={show}>
       <GamesCardContent>

@@ -1,4 +1,5 @@
-import { createContext, useCallback, useEffect, useState } from 'react'
+import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
+
 import { WalletTag } from './types'
 
 const accountState = {
@@ -63,17 +64,40 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         window.ethereum.on('accountsChanged', (accounts: string[]) => {
           if (!accounts.length) {
             logout()
+
             return
           }
           setAccountId(accounts[0])
         })
 
-        window.ethereum.on('chainChanged', (chainId: string) => {
-          setChainId(chainId)
+        window.ethereum.on('chainChanged', (chainID: string) => {
+          setChainId(chainID)
         })
       })
-      .catch((error: unknown) => console.log(error))
+      .catch(() => {})
   }, [])
+
+  const logout = (): void => {
+    setIsConnected(false)
+    setAccountId('')
+    setChainId('')
+  }
+
+  const connectSuiWallet = useCallback(() => {}, [])
+
+  const value = useMemo(
+    () => ({
+      isConnected,
+      detected,
+      connectMetamask,
+      connectSuiWallet,
+      logout,
+      walletTag,
+      accountId,
+      chainId,
+    }),
+    [isConnected, detected, walletTag, accountId, chainId],
+  )
 
   useEffect(() => {
     localStorage.setItem(
@@ -82,30 +106,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     )
   }, [isConnected, accountId, chainId, walletTag])
 
-  const logout = () => {
-    setIsConnected(false)
-    setAccountId('')
-    setChainId('')
-  }
-
-  const connectSuiWallet = useCallback(() => {
-    console.log(window.__suiet__)
-  }, [])
-
   return (
-    <WalletContext.Provider
-      value={{
-        isConnected,
-        detected,
-        connectMetamask,
-        connectSuiWallet,
-        logout,
-        walletTag,
-        accountId,
-        chainId,
-      }}
-    >
-      {children}
-    </WalletContext.Provider>
+    <WalletContext.Provider value={value}>{children}</WalletContext.Provider>
   )
 }

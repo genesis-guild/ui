@@ -1,6 +1,6 @@
 import { IconProps } from 'shared/assets/types'
 
-export const BadgeLogoContainer = ({ ...props }: IconProps) => {
+export const BadgeLogoContainer = ({ ...props }: IconProps): JSX.Element => {
   return (
     <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
       <g filter='url(#filter0_d_201_15377)'>
@@ -27,9 +27,9 @@ export const BadgeLogoContainer = ({ ...props }: IconProps) => {
           width='110.941'
           height='125.972'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -62,9 +62,9 @@ export const BadgeLogoContainer = ({ ...props }: IconProps) => {
           width='90.1938'
           height='101.312'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -98,8 +98,8 @@ export const BadgeLogoContainer = ({ ...props }: IconProps) => {
           y2='99.2801'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#555555' />
-          <stop offset='1' stop-color='#191919' />
+          <stop stopColor='#555555' />
+          <stop offset='1' stopColor='#191919' />
         </linearGradient>
         <linearGradient
           id='paint1_linear_201_15377'
@@ -109,8 +109,8 @@ export const BadgeLogoContainer = ({ ...props }: IconProps) => {
           y2='88.3189'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#8850FE' />
-          <stop offset='1' stop-color='#5114D2' />
+          <stop stopColor='#8850FE' />
+          <stop offset='1' stopColor='#5114D2' />
         </linearGradient>
       </defs>
     </svg>

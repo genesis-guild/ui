@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Tabs, Tab } from '@mui/material'
+import { Tab, Tabs } from '@mui/material'
 
 export const Container = styled.div`
   width: 100%;

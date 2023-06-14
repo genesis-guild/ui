@@ -1,15 +1,17 @@
 import { Routing } from 'pages'
-import { withProviders } from './providers'
 
-import './styles/normilize.css'
+import { Providers } from './providers'
 import './styles/fonts.css'
+import './styles/normilize.css'
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className='app'>
-      <Routing />
+      <Providers>
+        <Routing />
+      </Providers>
     </div>
   )
 }
 
-export default withProviders(App)
+export default App
