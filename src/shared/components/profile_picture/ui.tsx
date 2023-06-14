@@ -1,9 +1,10 @@
-import default_profile from 'shared/assets/images/default_profile.png'
-import { Container, LvlBorder, LvlCube, LvlDisplay } from './style'
-import { AccountLvl, Sizes } from './types'
-import { getLvlColor } from 'shared/utils/getLvlColor'
 import { Typography, useTheme } from '@mui/material'
 import { ProfileCube } from 'shared/assets/icons/profile_cube'
+import default_profile from 'shared/assets/images/default_profile.png'
+import { getLvlColor } from 'shared/utils/getLvlColor'
+
+import { Container, LvlBorder, LvlCube, LvlDisplay } from './style'
+import { AccountLvl, Sizes } from './types'
 
 interface ProfilePictureProps {
   picture_url?: string
@@ -24,7 +25,7 @@ export const ProfilePicture: React.FC<ProfilePictureProps> = ({
   return (
     <Container width={width} height={width} color={lvlColor}>
       <LvlBorder color={lvlColor}>
-        <img src={picture_url || default_profile} alt='picture' />
+        <img src={picture_url ?? default_profile} alt='profile' />
         {account_lvl !== AccountLvl.NoLvl && (
           <LvlDisplay color={lvlColor} size={size}>
             {size === Sizes.large ? (

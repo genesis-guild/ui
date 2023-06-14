@@ -1,6 +1,6 @@
 import { IconProps } from 'shared/assets/types'
 
-export const CommunityMarket = ({ ...props }: IconProps) => {
+export const CommunityMarket: React.FC<IconProps> = ({ ...props }) => {
   return (
     <svg {...props} fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
@@ -16,8 +16,8 @@ export const CommunityMarket = ({ ...props }: IconProps) => {
           y2='6.73977'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#1E77C9' />
-          <stop offset='1' stop-color='#12B6EA' />
+          <stop stopColor='#1E77C9' />
+          <stop offset='1' stopColor='#12B6EA' />
         </linearGradient>
       </defs>
     </svg>

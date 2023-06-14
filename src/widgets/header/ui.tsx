@@ -1,22 +1,22 @@
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material'
 import { ModalsContext } from 'app/contexts/modals'
-import { MODAL_NAMES } from 'app/contexts/modals/types'
+import { ModalNames } from 'app/contexts/modals/types'
 import { WalletContext } from 'app/contexts/wallet'
-import { LogoWhite } from 'shared/assets/icons/logo'
 import React, { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Avatar, MenuContainer, Profile, RightPanel } from './style'
+import { CommunityMarket } from 'shared/assets/icons/community_market'
+import { GuildMarket } from 'shared/assets/icons/guild_market'
+import { LogoWhite } from 'shared/assets/icons/logo'
 import { Dropdown, DropdownItem } from 'shared/components/dropdown'
 import { ProfilePicture } from 'shared/components/profile_picture'
 import { AccountLvl } from 'shared/components/profile_picture/types'
 import { getWalletIcon } from 'shared/utils/getWalletIcon'
-import { CommunityMarket } from 'shared/assets/icons/community_market'
-import { GuildMarket } from 'shared/assets/icons/guild_market'
 import { ClaimBadgeButton } from 'widgets/claim_badge_button'
 
+import { Avatar, MenuContainer, Profile, RightPanel } from './style'
+
 export const AppHeader: React.FC = () => {
-  const { isConnected, accountId, logout, walletTag } =
-    useContext(WalletContext)
+  const { isConnected, logout, walletTag } = useContext(WalletContext)
   const WalletIcon = getWalletIcon(walletTag)
   const { openModal } = useContext(ModalsContext)
   const location = useLocation()
@@ -146,7 +146,7 @@ export const AppHeader: React.FC = () => {
               <Button
                 variant='contained'
                 size='medium'
-                onClick={() => openModal(MODAL_NAMES.SELECT_WALLET)}
+                onClick={() => openModal(ModalNames.SELECT_WALLET)}
               >
                 Connect wallet
               </Button>

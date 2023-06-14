@@ -4,3 +4,7 @@ export enum TabLabels {
   Games = 'Games',
   VentureCapitals = 'Venture capitals',
 }
+
+export interface CardProps {
+  show?: boolean
+}

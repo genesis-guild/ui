@@ -1,8 +1,9 @@
 import { MainLayout } from 'processes/layouts/main'
-import { Routes, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+
+import { ClaimBadge } from './claim_badge'
 import { Main } from './main'
 import { UI_KIT } from './ui-kit'
-import { ClaimBadge } from './claim_badge'
 
 interface RoutingProps {
   isAuthenticated?: boolean

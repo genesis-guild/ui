@@ -1,10 +1,11 @@
 import { AccountLvl } from 'shared/components/profile_picture/types'
+
 import { IconProps } from '../types'
 
-export const ProfileCube = ({
+export const ProfileCube: React.FC<{ account_lvl: AccountLvl } & IconProps> = ({
   account_lvl,
   ...props
-}: { account_lvl: AccountLvl } & IconProps) => {
+}) => {
   switch (account_lvl) {
     case AccountLvl._1:
       return (
@@ -83,9 +84,9 @@ export const ProfileCube = ({
               width='31.7025'
               height='31.7025'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -118,9 +119,9 @@ export const ProfileCube = ({
               width='22.1528'
               height='24.5742'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -154,8 +155,8 @@ export const ProfileCube = ({
               y2='6.63567'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#999999' />
-              <stop offset='1' stop-color='#626262' />
+              <stop stopColor='#999999' />
+              <stop offset='1' stopColor='#626262' />
             </linearGradient>
             <linearGradient
               id='paint1_linear_508_20217'
@@ -165,8 +166,8 @@ export const ProfileCube = ({
               y2='24.3848'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#555555' />
-              <stop offset='1' stop-color='#191919' />
+              <stop stopColor='#555555' />
+              <stop offset='1' stopColor='#191919' />
             </linearGradient>
             <linearGradient
               id='paint2_linear_508_20217'
@@ -176,8 +177,8 @@ export const ProfileCube = ({
               y2='16.48'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#C9C9C9' />
-              <stop offset='1' stop-color='#5B5B5B' />
+              <stop stopColor='#C9C9C9' />
+              <stop offset='1' stopColor='#5B5B5B' />
             </linearGradient>
             <linearGradient
               id='paint3_linear_508_20217'
@@ -187,8 +188,8 @@ export const ProfileCube = ({
               y2='15.802'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#E9E9E9' />
-              <stop offset='1' stop-color='#8C8C8C' />
+              <stop stopColor='#E9E9E9' />
+              <stop offset='1' stopColor='#8C8C8C' />
             </linearGradient>
           </defs>
         </svg>
@@ -275,9 +276,9 @@ export const ProfileCube = ({
               width='31.7025'
               height='31.7025'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -310,9 +311,9 @@ export const ProfileCube = ({
               width='22.1528'
               height='24.5742'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -346,8 +347,8 @@ export const ProfileCube = ({
               y2='14.3377'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#0AFF6C' />
-              <stop offset='1' stop-color='#06721D' />
+              <stop stopColor='#0AFF6C' />
+              <stop offset='1' stopColor='#06721D' />
             </linearGradient>
             <linearGradient
               id='paint1_linear_508_20366'
@@ -357,8 +358,8 @@ export const ProfileCube = ({
               y2='11.0462'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#0AFF6C' />
-              <stop offset='1' stop-color='#06721D' />
+              <stop stopColor='#0AFF6C' />
+              <stop offset='1' stopColor='#06721D' />
             </linearGradient>
             <linearGradient
               id='paint2_linear_508_20366'
@@ -368,8 +369,8 @@ export const ProfileCube = ({
               y2='10.0428'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#0AFF6C' />
-              <stop offset='1' stop-color='#06721D' />
+              <stop stopColor='#0AFF6C' />
+              <stop offset='1' stopColor='#06721D' />
             </linearGradient>
             <linearGradient
               id='paint3_linear_508_20366'
@@ -379,8 +380,8 @@ export const ProfileCube = ({
               y2='11.0462'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#0AFF6C' />
-              <stop offset='1' stop-color='#06721D' />
+              <stop stopColor='#0AFF6C' />
+              <stop offset='1' stopColor='#06721D' />
             </linearGradient>
             <linearGradient
               id='paint4_linear_508_20366'
@@ -390,8 +391,8 @@ export const ProfileCube = ({
               y2='9.65899'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#0AFF6C' />
-              <stop offset='1' stop-color='#06721D' />
+              <stop stopColor='#0AFF6C' />
+              <stop offset='1' stopColor='#06721D' />
             </linearGradient>
           </defs>
         </svg>
@@ -474,9 +475,9 @@ export const ProfileCube = ({
               width='31.7025'
               height='31.7025'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -509,9 +510,9 @@ export const ProfileCube = ({
               width='22.1528'
               height='24.5742'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -545,8 +546,8 @@ export const ProfileCube = ({
               y2='6.63567'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint1_linear_508_20397'
@@ -556,8 +557,8 @@ export const ProfileCube = ({
               y2='7.73653'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint2_linear_508_20397'
@@ -567,8 +568,8 @@ export const ProfileCube = ({
               y2='11.3888'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint3_linear_508_20397'
@@ -578,8 +579,8 @@ export const ProfileCube = ({
               y2='7.73653'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint4_linear_508_20397'
@@ -589,8 +590,8 @@ export const ProfileCube = ({
               y2='11.2529'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
           </defs>
         </svg>
@@ -673,9 +674,9 @@ export const ProfileCube = ({
               width='31.7025'
               height='31.7025'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -708,9 +709,9 @@ export const ProfileCube = ({
               width='22.1528'
               height='24.5742'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -744,9 +745,9 @@ export const ProfileCube = ({
               y2='26.8333'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#FFE603' />
-              <stop offset='0.701939' stop-color='#E2481A' />
-              <stop offset='1' stop-color='#DB2020' />
+              <stop stopColor='#FFE603' />
+              <stop offset='0.701939' stopColor='#E2481A' />
+              <stop offset='1' stopColor='#DB2020' />
             </linearGradient>
             <linearGradient
               id='paint1_linear_508_20428'
@@ -756,8 +757,8 @@ export const ProfileCube = ({
               y2='7.73653'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint2_linear_508_20428'
@@ -767,9 +768,9 @@ export const ProfileCube = ({
               y2='17.1228'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#FFE603' />
-              <stop offset='0.701939' stop-color='#E2481A' />
-              <stop offset='1' stop-color='#DB2020' />
+              <stop stopColor='#FFE603' />
+              <stop offset='0.701939' stopColor='#E2481A' />
+              <stop offset='1' stopColor='#DB2020' />
             </linearGradient>
             <linearGradient
               id='paint3_linear_508_20428'
@@ -779,8 +780,8 @@ export const ProfileCube = ({
               y2='7.73653'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint4_linear_508_20428'
@@ -790,9 +791,9 @@ export const ProfileCube = ({
               y2='16.4155'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#FFE603' />
-              <stop offset='0.701939' stop-color='#E2481A' />
-              <stop offset='1' stop-color='#DB2020' />
+              <stop stopColor='#FFE603' />
+              <stop offset='0.701939' stopColor='#E2481A' />
+              <stop offset='1' stopColor='#DB2020' />
             </linearGradient>
           </defs>
         </svg>
@@ -875,9 +876,9 @@ export const ProfileCube = ({
               width='31.7025'
               height='31.7025'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -910,9 +911,9 @@ export const ProfileCube = ({
               width='22.1528'
               height='24.5742'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -946,8 +947,8 @@ export const ProfileCube = ({
               y2='6.0483'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#6100FF' />
-              <stop offset='1' stop-color='#BB4BFF' />
+              <stop stopColor='#6100FF' />
+              <stop offset='1' stopColor='#BB4BFF' />
             </linearGradient>
             <linearGradient
               id='paint1_linear_508_20459'
@@ -957,8 +958,8 @@ export const ProfileCube = ({
               y2='7.73653'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint2_linear_508_20459'
@@ -968,8 +969,8 @@ export const ProfileCube = ({
               y2='11.0939'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#6100FF' />
-              <stop offset='1' stop-color='#BB4BFF' />
+              <stop stopColor='#6100FF' />
+              <stop offset='1' stopColor='#BB4BFF' />
             </linearGradient>
             <linearGradient
               id='paint3_linear_508_20459'
@@ -979,8 +980,8 @@ export const ProfileCube = ({
               y2='7.73653'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint4_linear_508_20459'
@@ -990,8 +991,8 @@ export const ProfileCube = ({
               y2='10.9698'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#6100FF' />
-              <stop offset='1' stop-color='#BB4BFF' />
+              <stop stopColor='#6100FF' />
+              <stop offset='1' stopColor='#BB4BFF' />
             </linearGradient>
           </defs>
         </svg>
@@ -1074,9 +1075,9 @@ export const ProfileCube = ({
               width='31.7025'
               height='31.7025'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -1109,9 +1110,9 @@ export const ProfileCube = ({
               width='22.1528'
               height='24.5742'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'
@@ -1145,9 +1146,9 @@ export const ProfileCube = ({
               y2='6.0483'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#06FFA5' />
-              <stop offset='0.5' stop-color='#1781E2' />
-              <stop offset='1' stop-color='#FF00B8' />
+              <stop stopColor='#06FFA5' />
+              <stop offset='0.5' stopColor='#1781E2' />
+              <stop offset='1' stopColor='#FF00B8' />
             </linearGradient>
             <radialGradient
               id='paint1_radial_508_20490'
@@ -1157,9 +1158,9 @@ export const ProfileCube = ({
               gradientUnits='userSpaceOnUse'
               gradientTransform='translate(13.9998 15.1786) rotate(45.8023) scale(13.3782 73.5238)'
             >
-              <stop stop-color='#06FFA5' />
-              <stop offset='0.5' stop-color='#1781E2' />
-              <stop offset='1' stop-color='#FF00B8' />
+              <stop stopColor='#06FFA5' />
+              <stop offset='0.5' stopColor='#1781E2' />
+              <stop offset='1' stopColor='#FF00B8' />
             </radialGradient>
             <linearGradient
               id='paint2_linear_508_20490'
@@ -1169,8 +1170,8 @@ export const ProfileCube = ({
               y2='7.73653'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint3_linear_508_20490'
@@ -1180,9 +1181,9 @@ export const ProfileCube = ({
               y2='11.0939'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#06FFA5' />
-              <stop offset='0.5' stop-color='#1781E2' />
-              <stop offset='1' stop-color='#FF00B8' />
+              <stop stopColor='#06FFA5' />
+              <stop offset='0.5' stopColor='#1781E2' />
+              <stop offset='1' stopColor='#FF00B8' />
             </linearGradient>
             <linearGradient
               id='paint4_linear_508_20490'
@@ -1192,8 +1193,8 @@ export const ProfileCube = ({
               y2='7.73653'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#1E77C9' />
-              <stop offset='1' stop-color='#12B6EA' />
+              <stop stopColor='#1E77C9' />
+              <stop offset='1' stopColor='#12B6EA' />
             </linearGradient>
             <linearGradient
               id='paint5_linear_508_20490'
@@ -1203,9 +1204,9 @@ export const ProfileCube = ({
               y2='10.9698'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#06FFA5' />
-              <stop offset='0.5' stop-color='#1781E2' />
-              <stop offset='1' stop-color='#FF00B8' />
+              <stop stopColor='#06FFA5' />
+              <stop offset='0.5' stopColor='#1781E2' />
+              <stop offset='1' stopColor='#FF00B8' />
             </linearGradient>
           </defs>
         </svg>
@@ -1236,9 +1237,9 @@ export const ProfileCube = ({
               width='31.7025'
               height='31.7025'
               filterUnits='userSpaceOnUse'
-              color-interpolation-filters='sRGB'
+              colorInterpolationFilters='sRGB'
             >
-              <feFlood flood-opacity='0' result='BackgroundImageFix' />
+              <feFlood floodOpacity='0' result='BackgroundImageFix' />
               <feColorMatrix
                 in='SourceAlpha'
                 type='matrix'

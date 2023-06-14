@@ -1,19 +1,20 @@
 import {
+  Avatar,
   Box,
+  Dialog,
   List,
   ListItem,
   ListItemButton,
-  Dialog,
   Typography,
-  Avatar,
 } from '@mui/material'
-import { ModalCommonProps } from '../types'
-import { MetamaskLogoIcon } from 'shared/assets/icons/metamask_logo'
-import { SuiLogoIcon } from 'shared/assets/icons/sui_logo'
 import { WalletContext } from 'app/contexts/wallet'
+import { WalletTag } from 'app/contexts/wallet/types'
 import { useContext } from 'react'
 import { Close } from 'shared/assets/icons/close'
-import { WalletTag } from 'app/contexts/wallet/types'
+import { MetamaskLogoIcon } from 'shared/assets/icons/metamask_logo'
+import { SuiLogoIcon } from 'shared/assets/icons/sui_logo'
+
+import { ModalCommonProps } from '../types'
 
 export const SelectWalletModal: React.FC<ModalCommonProps> = ({
   isOpen,
@@ -22,12 +23,12 @@ export const SelectWalletModal: React.FC<ModalCommonProps> = ({
   const { connectMetamask, connectSuiWallet, detected } =
     useContext(WalletContext)
 
-  const handleMetamaskClick = () => {
+  const handleMetamaskClick = (): void => {
     connectMetamask()
     onClose()
   }
 
-  const handleSuiClick = () => {
+  const handleSuiClick = (): void => {
     connectSuiWallet()
     onClose()
   }

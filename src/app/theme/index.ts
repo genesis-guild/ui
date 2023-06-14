@@ -1,6 +1,7 @@
-import { PaletteMode } from '@mui/material'
-import { createTheme } from '@mui/material'
+import { PaletteMode , createTheme } from '@mui/material'
+
 import { Theme } from '@mui/material/styles'
+
 import { components } from './components'
 import { custom } from './custom'
 import { typography } from './typography'

@@ -1,14 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /// <reference types="vite/client" />
-
-import {
-  Theme as MuiTheme,
-  ThemeOptions as MuiThemeOptions,
-  TypographyStyle,
-} from '@mui/material'
+import { Theme as MuiTheme, TypographyStyle } from '@mui/material'
 import { CustomTheme, Typography } from 'app/theme/types'
 
 declare module '*.svg' {
   import React = require('react')
+
   export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>
   const src: string
   export default src

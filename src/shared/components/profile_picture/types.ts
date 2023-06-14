@@ -1,5 +1,5 @@
 export enum AccountLvl {
-  NoLvl = 'no_lvl',
+  NoLvl = 0,
   _1 = 1,
   _2 = 2,
   _3 = 3,

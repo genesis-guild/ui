@@ -1,5 +1,7 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
 import rent_bg from 'shared/assets/images/main_rent.png'
+import { MainBenefits } from 'widgets/main_benefits'
+
 import {
   Benefit,
   Container,
@@ -7,10 +9,10 @@ import {
   RentAndEarnInner,
   Surface2Button,
 } from './style'
-import { MainBenefits } from 'widgets/main_benefits'
 
 export const Main: React.FC = () => {
   const theme = useTheme()
+
   return (
     <Container>
       <RentAndEarn style={{ backgroundImage: `url(${rent_bg})` }}>

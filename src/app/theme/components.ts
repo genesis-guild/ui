@@ -1,4 +1,5 @@
 import { Theme } from '@mui/material'
+
 import { custom } from './custom'
 
 window.CSS.registerProperty({
@@ -42,7 +43,7 @@ export const components: Theme['components'] = {
               },
             }
           default:
-            return
+            return ''
         }
       },
     },

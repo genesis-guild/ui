@@ -1,19 +1,22 @@
 import { ThemeProvider } from '@mui/material/styles'
 import { ModalsProvider } from 'app/contexts/modals'
 import { WalletProvider } from 'app/contexts/wallet'
-import { getTheme } from 'app/theme'
-import { SocketsProvider } from '../contexts'
-import { BrowserRouter } from 'react-router-dom'
 import { GlobalStyle } from 'app/styles/globalStyles'
+import { getTheme } from 'app/theme'
+import { BrowserRouter } from 'react-router-dom'
 
-export const withProviders = (component: () => React.ReactNode) => {
-  return () => (
+import { SocketsProvider } from '../contexts'
+
+export const Providers: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return (
     <SocketsProvider>
       <ThemeProvider theme={getTheme()}>
         <GlobalStyle />
         <BrowserRouter>
           <WalletProvider>
-            <ModalsProvider>{component()}</ModalsProvider>
+            <ModalsProvider>{children}</ModalsProvider>
           </WalletProvider>
         </BrowserRouter>
       </ThemeProvider>

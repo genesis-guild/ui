@@ -1,14 +1,15 @@
 import {
-  Button,
-  Popover,
-  MenuItem,
-  Typography,
   Box,
-  SxProps,
+  Button,
   ButtonProps,
+  MenuItem,
+  Popover,
+  SxProps,
+  Typography,
 } from '@mui/material'
 import React, { useState } from 'react'
 import { ArrowDown } from 'shared/assets/icons/arrow_down'
+
 import { ArrowContainer } from './style'
 
 interface DropdownProps {
@@ -32,6 +33,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   width = '200px',
   noArrow,
   startIcon,
+  endIcon,
   color,
   sx,
 }) => {
@@ -39,11 +41,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   const isMenuOpen = Boolean(anchorEl)
 
-  const handleMenuClose = () => {
+  const handleMenuClose = (): void => {
     setAnchorEl(null)
   }
 
-  const handleClick = (event: React.MouseEvent) => {
+  const handleClick = (event: React.MouseEvent): void => {
     setAnchorEl(event.currentTarget)
   }
 
@@ -73,10 +75,10 @@ export const Dropdown: React.FC<DropdownProps> = ({
     <>
       <Button
         variant='contained'
-        color={color || 'tertiary'}
+        color={color ?? 'tertiary'}
         onClick={handleClick}
         startIcon={startIcon}
-        endIcon={startIcon}
+        endIcon={endIcon}
         sx={sx}
       >
         {title}
@@ -91,14 +93,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
   )
 }
 
-interface DropdownItem {
+interface DropdownItemProps {
   children: React.ReactNode
   leftIcon?: React.ReactNode
   sx?: SxProps
   onClick?: () => void
 }
 
-export const DropdownItem: React.FC<DropdownItem> = ({
+export const DropdownItem: React.FC<DropdownItemProps> = ({
   children,
   onClick,
   leftIcon,
