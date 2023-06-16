@@ -5,10 +5,13 @@ export const FooterContainer = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.custom.colors.surface1.enable};
   border-radius: 45px 45px 0px 0px;
+  display: flex;
+  justify-content: center;
 `
 
 export const FooterContent = styled.div`
   max-width: 1600px;
+  width: 100%;
   padding: 72px 60px 84px 60px;
   display: flex;
 `
