@@ -53,6 +53,7 @@ export interface CustomTheme {
       secondary_icon: string
       text_dark: string
       text_secondary: string
+      secondary: string
     }
     accent: {
       _1: string
