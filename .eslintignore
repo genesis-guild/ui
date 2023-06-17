@@ -4,3 +4,4 @@ lint-staged.config.js
 next.config.js
 .eslintrc.js
 /bin
+vite.config.ts

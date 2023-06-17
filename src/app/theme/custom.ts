@@ -52,6 +52,7 @@ export const custom: Theme['custom'] = {
     neutral: {
       background: '#0B0B0D',
       outline: '#363840',
+      secondary: '#2993FA',
       secondary_icon: '#6B7280',
       text_dark: '#ABAEB3',
       text_secondary: '#C4C7CC',

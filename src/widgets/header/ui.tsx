@@ -11,9 +11,9 @@ import { Dropdown, DropdownItem } from 'shared/components/dropdown'
 import { ProfilePicture } from 'shared/components/profile_picture'
 import { AccountLvl } from 'shared/components/profile_picture/types'
 import { getWalletIcon } from 'shared/utils/getWalletIcon'
-import { ClaimBadgeButton } from 'widgets/claim_badge_button'
 
 import { Avatar, MenuContainer, Profile, RightPanel } from './style'
+import { ClaimBadgeButton } from './ui/claim_badge_button'
 
 export const AppHeader: React.FC = () => {
   const { isConnected, logout, walletTag } = useContext(WalletContext)
