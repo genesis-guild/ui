@@ -11,4 +11,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+`
+
+export const FaqContainer = styled.div`
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
 `
