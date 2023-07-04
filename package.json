@@ -7,7 +7,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "postinstall": "husky install",
-    "pre-commit": "set NODE_ENV=production&& npx --no-install lint-staged"
+    "pre-commit": "set NODE_ENV=production&& npx --no-install lint-staged",
+    "generate-api": "openapi --input ./spec.json --output ./src/shared/api && npx prettier ./src/shared/api -w"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -16,6 +17,7 @@
     "@mui/material": "^5.12.1",
     "@suiet/wallet-kit": "^0.2.15",
     "phantom-wagmi-connector": "^1.0.7",
+    "@tanstack/react-query": "^4.29.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
@@ -44,6 +46,7 @@
     "eslint-plugin-react-refresh": "^0.4.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
+    "openapi-typescript-codegen": "^0.24.0",
     "prettier": "^2.8.8",
     "typescript": "^4.9.3",
     "vite": "^4.2.0",
