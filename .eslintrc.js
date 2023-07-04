@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  plugins: ['@typescript-eslint', 'prettier', 'import'],
+  plugins: ['@typescript-eslint', 'prettier', 'import', 'react-refresh'],
   extends: [
     'airbnb',
     'airbnb-typescript',
@@ -40,6 +40,7 @@ module.exports = {
         exceptAfterSingleLine: true,
       },
     ],
+    'react-refresh/only-export-components': 'warn',
     'class-methods-use-this': 'off',
     'no-new': 'off',
     'default-case': 'off',
