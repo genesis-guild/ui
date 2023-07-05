@@ -1,4 +1,6 @@
-import { ChainType, TransactionReqParamsType } from '../../types'
+import { ChainType } from 'shared/types/chain'
+
+import { TransactionReqParamsType } from '../../types'
 import { ethSendTransaction } from './actions/eth'
 
 export const signTransaction = (
@@ -8,5 +10,7 @@ export const signTransaction = (
   switch (chainType) {
     case ChainType.ETH:
       ethSendTransaction(reqParams)
+      break
+    default:
   }
 }

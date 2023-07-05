@@ -1,23 +1,22 @@
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material'
 import { ModalsContext } from 'app/contexts/modals'
 import { ModalNames } from 'app/contexts/modals/types'
-import { WalletContext } from 'app/contexts/wallet'
 import React, { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { CommunityMarket } from 'shared/assets/icons/community_market'
-import { GuildMarket } from 'shared/assets/icons/guild_market'
-import { LogoWhite } from 'shared/assets/icons/logo'
+import { CommunityMarket, GuildMarket, LogoWhite } from 'shared/assets/icons'
 import { Dropdown, DropdownItem } from 'shared/components/dropdown'
 import { ProfilePicture } from 'shared/components/profile_picture'
 import { AccountLvl } from 'shared/components/profile_picture/types'
+import { useConnect } from 'shared/hooks/useConnect'
+import { WalletTag } from 'shared/types/chain'
 import { getWalletIcon } from 'shared/utils/getWalletIcon'
 
 import { Avatar, MenuContainer, Profile, RightPanel } from './style'
 import { ClaimBadgeButton } from './ui/claim_badge_button'
 
 export const AppHeader: React.FC = () => {
-  const { isConnected, logout, walletTag } = useContext(WalletContext)
-  const WalletIcon = getWalletIcon(walletTag)
+  const { disconnect, account } = useConnect()
+  const WalletIcon = getWalletIcon(WalletTag.Metamask)
   const { openModal } = useContext(ModalsContext)
   const location = useLocation()
 
@@ -30,7 +29,7 @@ export const AppHeader: React.FC = () => {
     <DropdownItem>My Requests</DropdownItem>,
     <DropdownItem>My offers</DropdownItem>,
     <DropdownItem>Redeem</DropdownItem>,
-    <DropdownItem onClick={logout}>
+    <DropdownItem onClick={disconnect}>
       <Box sx={theme => ({ color: theme.custom.colors.neutral.text_dark })}>
         Log out
       </Box>
@@ -110,8 +109,8 @@ export const AppHeader: React.FC = () => {
               <MenuLink link='/blog' label='Blog' pathname={pathname} />
               <MenuLink link='/docs' label='Docs' pathname={pathname} />
             </MenuContainer>
-            {isConnected && <Button variant='contained'>Rent NFTs</Button>}
-            {isConnected && (
+            {!!account && <Button variant='contained'>Rent NFTs</Button>}
+            {!!account && (
               <RightPanel>
                 <Button
                   variant='contained'
@@ -135,7 +134,7 @@ export const AppHeader: React.FC = () => {
             )}
           </Box>
 
-          {!isConnected && (
+          {!account && (
             <Box
               sx={{
                 display: 'flex',

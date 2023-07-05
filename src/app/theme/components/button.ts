@@ -1,22 +1,8 @@
 import { Theme } from '@mui/material'
 
-import { custom } from './custom'
+import { custom } from '../custom'
 
-window.CSS.registerProperty({
-  name: '--1',
-  syntax: '<color>',
-  inherits: false,
-  initialValue: custom.colors.gradient.primary._1,
-})
-
-window.CSS.registerProperty({
-  name: '--2',
-  syntax: '<color>',
-  inherits: false,
-  initialValue: custom.colors.gradient.primary._2,
-})
-
-export const components: Theme['components'] = {
+export const button: Theme['components'] = {
   MuiButton: {
     styleOverrides: {
       root: ({ ownerState }) => {
@@ -115,61 +101,6 @@ export const components: Theme['components'] = {
         props: { variant: 'contained', size: 'small' },
         style: {
           padding: '6px 16px',
-        },
-      },
-    ],
-  },
-  MuiDialog: {
-    styleOverrides: {
-      paper: {
-        padding: '32px',
-        position: 'relative',
-        background: custom.colors.surface1.enable,
-        borderRadius: '25px',
-        boxShadow: custom.colors.effects.shadow_m,
-      },
-    },
-  },
-  MuiAppBar: {
-    styleOverrides: {
-      root: {
-        boxShadow: 'none',
-      },
-    },
-  },
-  MuiPopover: {
-    styleOverrides: {
-      paper: {
-        background: custom.colors.surface2.enable,
-        borderRadius: '15px',
-        padding: '8px 16px',
-      },
-    },
-  },
-  MuiMenuItem: {
-    styleOverrides: {
-      root: {
-        '&:hover': {
-          background: custom.colors.surface1.hover,
-        },
-      },
-    },
-  },
-  MuiListItemButton: {
-    styleOverrides: {
-      root: {
-        '&:hover': {
-          background: custom.colors.surface1.hover,
-        },
-      },
-    },
-  },
-  MuiTypography: {
-    variants: [
-      {
-        props: { variant: 'button' },
-        style: {
-          textTransform: 'none',
         },
       },
     ],

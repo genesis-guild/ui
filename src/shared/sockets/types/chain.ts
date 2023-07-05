@@ -1,11 +1,9 @@
+import { ChainType } from 'shared/types/chain'
+
 export enum ChainEventName {
   MINT = 'mint',
   SIGN_TRANSACTION = 'sign_transaction',
   LIST = 'list',
-}
-
-export enum ChainType {
-  ETH = 'eth',
 }
 
 export interface TransactionReqParamsType {

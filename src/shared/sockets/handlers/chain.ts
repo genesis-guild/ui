@@ -1,6 +1,7 @@
+import { ChainType } from 'shared/types/chain'
 import { Socket } from 'socket.io-client'
 
-import { ChainEventName, ChainType, TransactionReqParamsType } from '../types'
+import { ChainEventName, TransactionReqParamsType } from '../types'
 import { signTransaction } from '../utils/chain'
 import { Handlers } from './common'
 

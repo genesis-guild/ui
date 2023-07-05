@@ -15,6 +15,7 @@ declare global {
   interface Window {
     ethereum: any
     __suiet__: any
+    phantom: any
 
     CSS: { registerProperty: (property: any) => void }
   }

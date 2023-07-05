@@ -1,7 +1,6 @@
-import { WalletTag } from 'app/contexts/wallet/types'
-import { MetamaskLogoIcon } from 'shared/assets/icons/metamask_logo'
-import { SuiLogoIcon } from 'shared/assets/icons/sui_logo'
+import { MetamaskLogoIcon, SuiLogoIcon } from 'shared/assets/icons'
 import { IconProps } from 'shared/assets/types'
+import { WalletTag } from 'shared/types/chain'
 
 export const getWalletIcon = (
   wallet: WalletTag,
@@ -9,7 +8,7 @@ export const getWalletIcon = (
   switch (wallet) {
     case WalletTag.Metamask:
       return MetamaskLogoIcon
-    case WalletTag.Sui:
+    case WalletTag.Suiet:
       return SuiLogoIcon
     default:
       return null
