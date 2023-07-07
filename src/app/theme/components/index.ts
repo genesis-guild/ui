@@ -7,6 +7,7 @@ import { dialog } from './dialog'
 import { listItemButton } from './listItemButton'
 import { menuItem } from './menuItem'
 import { popover } from './popover'
+import { select } from './select'
 import { typograpgy } from './typography'
 
 window.CSS.registerProperty({
@@ -31,4 +32,5 @@ export const components: Theme['components'] = {
   ...appBar,
   ...dialog,
   ...button,
+  ...select,
 }

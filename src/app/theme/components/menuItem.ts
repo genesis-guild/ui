@@ -10,6 +10,9 @@ export const menuItem: Theme['components'] = {
           background: custom.colors.surface1.hover,
         },
       },
+      selected: {
+        backgroundColor: custom.colors.surface1.hover,
+      },
     },
   },
 }
