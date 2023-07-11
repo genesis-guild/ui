@@ -6,7 +6,7 @@ import {
   Select as MuiSelect,
   SelectProps,
 } from '@mui/material'
-import { SelectArrow } from 'shared/assets/icons/select_arrow'
+import { SelectArrow } from 'shared/assets/icons'
 
 const paperStyles = {
   borderRadius: '20px',
