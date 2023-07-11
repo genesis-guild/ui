@@ -5,7 +5,12 @@ import {
   ListItemButton,
   Typography,
 } from '@mui/material'
-import { MetamaskLogoIcon, SuiLogoIcon } from 'shared/assets/icons'
+import {
+  MetamaskLogoIcon,
+  PhantomIcon,
+  SuietLogoIcon,
+  SuietWalletIcon,
+} from 'shared/assets/icons'
 import { WalletTag } from 'shared/types/chain'
 
 const labels: Record<WalletTag, string> = {
@@ -17,9 +22,9 @@ const labels: Record<WalletTag, string> = {
 
 const icons: Record<WalletTag, JSX.Element> = {
   [WalletTag.Metamask]: <MetamaskLogoIcon width={44} height={44} />,
-  [WalletTag.Suiet]: <SuiLogoIcon width={44} height={44} />,
-  [WalletTag.SuiWallet]: <SuiLogoIcon width={44} height={44} />,
-  [WalletTag.Phantom]: <MetamaskLogoIcon width={44} height={44} />,
+  [WalletTag.Suiet]: <SuietLogoIcon width={44} height={44} />,
+  [WalletTag.SuiWallet]: <SuietWalletIcon width={44} height={44} />,
+  [WalletTag.Phantom]: <PhantomIcon width={44} height={44} />,
 }
 
 interface Props {

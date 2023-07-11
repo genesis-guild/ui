@@ -13,7 +13,6 @@ export const WalletsList: React.FC<Props> = ({ wallets, handleConnect }) => {
     <List
       sx={{
         p: 0,
-        mt: '32px',
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
