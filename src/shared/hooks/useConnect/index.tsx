@@ -1,35 +1,30 @@
-import { useMemo } from 'react'
-import { ChainType, WalletTag } from 'shared/types/chain'
+import { WalletContext } from 'app/contexts'
+import { useContext, useMemo } from 'react'
+import { ChainType, WalletTag } from 'shared/types'
 
-import { ConnectAccountType } from './types'
 import { useEthConntect } from './useEthConnect'
 import { useSuiConnect } from './useSuiConnect'
 
 interface UseConnectType {
   connect: (chainType: ChainType, walletTag: WalletTag) => void
   disconnect: () => void
-  account: ConnectAccountType | undefined
   isLoading: boolean
 }
+
+export { useEthConntect, useSuiConnect }
 
 export const useConnect = (): UseConnectType => {
   const {
     connect: ethConnect,
-    account: ethAccount,
     disconnect: ethDisconnect,
     isLoading: ethIsLoading,
   } = useEthConntect()
   const {
     connect: suiConnect,
-    account: suiAccount,
     disconnect: suiDisconnect,
     isLoading: suiIsLoading,
   } = useSuiConnect()
-
-  const activeAccount = useMemo(
-    () => [ethAccount, suiAccount].find(a => a.connected),
-    [ethAccount, suiAccount],
-  )
+  const { activeAccount } = useContext(WalletContext)
 
   const isLoading = useMemo(
     () => ethIsLoading || suiIsLoading,
@@ -53,13 +48,12 @@ export const useConnect = (): UseConnectType => {
     switch (chainType) {
       case ChainType.ETH:
         ethConnect(walletTag)
-        disconnectOther(chainType)
         break
       case ChainType.SUI:
         suiConnect(walletTag)
-        disconnectOther(chainType)
         break
     }
+    disconnectOther(chainType)
   }
 
   const disconnect = (): void => {
@@ -75,5 +69,5 @@ export const useConnect = (): UseConnectType => {
     }
   }
 
-  return { connect, disconnect, account: activeAccount, isLoading }
+  return { connect, disconnect, isLoading }
 }

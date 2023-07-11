@@ -2,9 +2,9 @@ import { Box, Dialog, Typography } from '@mui/material'
 import { useState } from 'react'
 import { Close } from 'shared/assets/icons/close'
 import { useConnect } from 'shared/hooks/useConnect'
+import { ModalCommonProps } from 'shared/types'
 import { ChainType, WalletTag } from 'shared/types/chain'
 
-import { ModalCommonProps } from '../../types'
 import { WalletsList } from './components'
 
 const walletsByChain: Record<ChainType, WalletTag[]> = {

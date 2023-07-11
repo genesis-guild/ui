@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useMemo, useState } from 'react'
-import { initHandlers } from 'shared/sockets'
+import { useHandlers } from 'shared/hooks/useSockets'
+import { log } from 'shared/utils/log'
 import { Socket, io } from 'socket.io-client'
 
 export const SocketsContext = createContext<{
@@ -11,6 +12,7 @@ export const SocketsContext = createContext<{
 export const SocketsProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const { init } = useHandlers()
   const [socket, setSocket] = useState<Socket>()
 
   useEffect(() => {
@@ -21,7 +23,9 @@ export const SocketsProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     if (socket) {
-      initHandlers(socket)
+      log('info', 'socket initialized')
+
+      init(socket)
     }
   }, [socket])
 
