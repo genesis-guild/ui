@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { EtheriumIcon, SolanaIcon } from 'shared/assets/icons'
 import { Close } from 'shared/assets/icons/close'
 import { useConnect } from 'shared/hooks/useConnect'
+import { ModalCommonProps } from 'shared/types'
 import { ChainType, WalletTag } from 'shared/types/chain'
 import { SelectOption } from 'shared/types/common'
 
-import { ModalCommonProps } from '../../types'
 import { WalletsList } from './components'
 import { ChainSelect } from './components/ChainSelect'
 

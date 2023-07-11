@@ -1,3 +1,3 @@
 export { SocketsProvider, SocketsContext } from './sockets'
 export { ChainProvider } from './chain'
-export { ModalsProvider } from './modals'
+export { WalletProvider, WalletContext } from './wallet'
