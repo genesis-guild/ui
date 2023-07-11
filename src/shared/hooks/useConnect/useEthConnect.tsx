@@ -1,12 +1,13 @@
 import { useMemo } from 'react'
+import { ConnectAccountType } from 'shared/types'
 import { ChainType, WalletTag } from 'shared/types/chain'
 import { log } from 'shared/utils/log'
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
+import { useAccount, useConnect as useConnectWagmi, useDisconnect } from 'wagmi'
 
-import { ConnectAccountType, UseConnectNetType } from './types'
+import { UseConnectNetType } from './types'
 
 export const useEthConntect = (): UseConnectNetType => {
-  const { connect: connectWagmi, connectors, isLoading } = useConnect()
+  const { connect: connectWagmi, connectors, isLoading } = useConnectWagmi()
   const { address, isConnected } = useAccount()
   const { disconnect: wagmiDisconnect } = useDisconnect()
 
