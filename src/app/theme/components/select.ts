@@ -8,7 +8,6 @@ export const select: Theme['components'] = {
       outlined: {
         background: custom.colors.surface2.enable,
         borderRadius: '15px',
-        // padding: '16px 24px',
       },
       icon: {
         width: '12px',
