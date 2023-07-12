@@ -21,7 +21,11 @@ export const ChainSelect: React.FC<Props> = ({ options, onChainChanged }) => {
   return (
     <Select<ChainType> value={value} onChange={handleChange}>
       {options.map(option => {
-        return <SelectItem value={option.value}>{option.label}</SelectItem>
+        return (
+          <SelectItem value={option.value} key={option.value}>
+            {option.label}
+          </SelectItem>
+        )
       })}
     </Select>
   )
