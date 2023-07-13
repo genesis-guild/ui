@@ -1,4 +1,5 @@
 import { Dialog, Typography } from '@mui/material'
+
 import { ConnectAccountType, ModalCommonProps } from 'shared/types'
 
 import { Close } from '../common/components'

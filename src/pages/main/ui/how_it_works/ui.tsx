@@ -1,4 +1,5 @@
 import { Typography, useTheme } from '@mui/material'
+
 import claim_image from 'shared/assets/images/how_it_works/claim.png'
 import finding_image from 'shared/assets/images/how_it_works/finding.png'
 import paying_image from 'shared/assets/images/how_it_works/paying.png'

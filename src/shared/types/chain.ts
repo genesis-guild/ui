@@ -9,3 +9,10 @@ export enum WalletTag {
   Suiet = 'Suiet',
   SuiWallet = 'Sui Wallet',
 }
+
+export type MessageTX = `0x${string}`
+
+export interface AccountWS {
+  chainType: ChainType
+  accountId: string
+}

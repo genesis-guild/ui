@@ -1,4 +1,5 @@
 import { Typography, useTheme } from '@mui/material'
+
 import { ProfileCube } from 'shared/assets/icons/profile_cube'
 import default_profile from 'shared/assets/images/default_profile.png'
 import { getLvlColor } from 'shared/utils/getLvlColor'

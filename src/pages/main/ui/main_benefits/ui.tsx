@@ -1,5 +1,6 @@
 import { Box, Typography, useTheme } from '@mui/material'
 import { useState } from 'react'
+
 import { Coin } from 'shared/assets/icons/coin'
 import { CubeWithLogo } from 'shared/assets/icons/cube_with_logo'
 import { Games } from 'shared/assets/icons/games'

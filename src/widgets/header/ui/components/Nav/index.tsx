@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 import { Link, useLocation } from 'react-router-dom'
+
 import { CommunityMarket, GuildMarket } from 'shared/assets/icons'
 import { Dropdown, DropdownItem } from 'shared/components/dropdown'
 

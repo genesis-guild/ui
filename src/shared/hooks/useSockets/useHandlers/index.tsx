@@ -1,5 +1,8 @@
-import { log } from 'shared/utils/log'
 import { Socket } from 'socket.io-client'
+
+import { publishMessage } from 'shared/hooks/useSubscribeToMessage'
+import { AccountWS, MessageEvent } from 'shared/types'
+import { log } from 'shared/utils/log'
 
 import { EventName, EventNameFactory, EventNamePostfix } from '../common'
 
@@ -14,19 +17,36 @@ export const useHandlers = (): ReturnType => {
     log('info', 'handlers initialized')
 
     handleSignMessage(socket)
+    handleLogin(socket)
   }
 
   const handleSignMessage = (socket: Socket): void => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // SHOULD BE FIXED IN FUTURE
-    socket.on(enf.get(EventName.SIGN_MESSAGE), (data: any) => {
+    socket.on(enf.get(EventName.SIGN_MESSAGE), (message: string) => {
       log(
         'info',
         'handling event',
         enf.get(EventName.SIGN_MESSAGE),
         'with data',
-        data,
+        message,
       )
+
+      publishMessage(MessageEvent.SIGN_MESSAGE, {
+        message,
+      })
+    })
+  }
+
+  const handleLogin = (socket: Socket): void => {
+    socket.on(enf.get(EventName.LOGIN), (account: AccountWS) => {
+      log(
+        'info',
+        'handling event',
+        enf.get(EventName.LOGIN),
+        'with account',
+        account,
+      )
+
+      // TODO: handle next sign message
     })
   }
 

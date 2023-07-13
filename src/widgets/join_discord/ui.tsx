@@ -1,4 +1,5 @@
 import { Button, useTheme } from '@mui/material'
+
 import { JoinDiscordLogo } from 'shared/assets/icons/join_discord_logo'
 import { Medium } from 'shared/assets/icons/medium'
 import { Telegram } from 'shared/assets/icons/telegram'
