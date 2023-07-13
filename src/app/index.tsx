@@ -1,7 +1,6 @@
 import { Routing } from 'pages'
 
 import { Providers } from './providers'
-import './styles/fonts.css'
 import './styles/normilize.css'
 
 const App: React.FC = () => {

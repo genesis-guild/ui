@@ -1,7 +1,7 @@
 import { Box, Dialog, Typography } from '@mui/material'
 import { useState } from 'react'
 
-import { EtheriumIcon, SolanaIcon } from 'shared/assets/icons'
+import { EtheriumIcon, SuietWalletIcon } from 'shared/assets/icons'
 import { Close } from 'shared/assets/icons/close'
 import { useConnect } from 'shared/hooks/useConnect'
 import { ModalCommonProps } from 'shared/types'
@@ -31,7 +31,7 @@ const chainOptions: SelectOption<ChainType>[] = [
     value: ChainType.ETH,
   },
   {
-    label: createLabel('Solana', <SolanaIcon width={24} height={24} />),
+    label: createLabel('Sui', <SuietWalletIcon width={24} height={24} />),
     value: ChainType.SUI,
   },
 ]
