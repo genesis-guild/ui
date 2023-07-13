@@ -1,6 +1,5 @@
 /* istanbul ignore file */
 
-
 /* eslint-disable */
 import { ApiError } from './ApiError'
 import type { ApiRequestOptions } from './ApiRequestOptions'

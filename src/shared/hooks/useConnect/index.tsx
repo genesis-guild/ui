@@ -1,5 +1,3 @@
-import { WalletContext } from 'app/contexts'
-import { useContext, useMemo } from 'react'
 import { ChainType, WalletTag } from 'shared/types'
 
 import { useEthConntect } from './useEthConnect'
@@ -7,8 +5,8 @@ import { useSuiConnect } from './useSuiConnect'
 
 interface UseConnectType {
   connect: (chainType: ChainType, walletTag: WalletTag) => void
-  disconnect: () => void
-  isLoading: boolean
+  disconnect: (chainType: ChainType | undefined) => void
+  signMessage: (chainType: ChainType | undefined, message: string) => void
 }
 
 export { useEthConntect, useSuiConnect }
@@ -16,20 +14,10 @@ export { useEthConntect, useSuiConnect }
 export const useConnect = (): UseConnectType => {
   const {
     connect: ethConnect,
+    signMessage: ethSignMessage,
     disconnect: ethDisconnect,
-    isLoading: ethIsLoading,
   } = useEthConntect()
-  const {
-    connect: suiConnect,
-    disconnect: suiDisconnect,
-    isLoading: suiIsLoading,
-  } = useSuiConnect()
-  const { activeAccount } = useContext(WalletContext)
-
-  const isLoading = useMemo(
-    () => ethIsLoading || suiIsLoading,
-    [ethIsLoading, suiIsLoading],
-  )
+  const { connect: suiConnect, disconnect: suiDisconnect } = useSuiConnect()
 
   const disconnects: Record<ChainType, UseConnectType['disconnect']> = {
     [ChainType.ETH]: ethDisconnect,
@@ -39,7 +27,7 @@ export const useConnect = (): UseConnectType => {
   const disconnectOther = (chainType: ChainType): void => {
     Object.entries(disconnects).forEach(([_chainType, disFn]) => {
       if ((_chainType as ChainType) !== chainType) {
-        disFn()
+        disFn(chainType)
       }
     })
   }
@@ -56,10 +44,10 @@ export const useConnect = (): UseConnectType => {
     disconnectOther(chainType)
   }
 
-  const disconnect = (): void => {
-    if (!activeAccount) return
+  const disconnect = (chainType: ChainType | undefined): void => {
+    if (!chainType) return
 
-    switch (activeAccount.chainType) {
+    switch (chainType) {
       case ChainType.ETH:
         ethDisconnect()
         break
@@ -69,5 +57,20 @@ export const useConnect = (): UseConnectType => {
     }
   }
 
-  return { connect, disconnect, isLoading }
+  const signMessage = (
+    chainType: ChainType | undefined,
+    message: string,
+  ): void => {
+    if (!chainType) return
+
+    switch (chainType) {
+      case ChainType.ETH:
+        ethSignMessage(message)
+        break
+      case ChainType.SUI:
+        break
+    }
+  }
+
+  return { connect, disconnect, signMessage }
 }

@@ -1,4 +1,5 @@
 import { Dialog, Typography } from '@mui/material'
+
 import { ModalCommonProps } from 'shared/types'
 
 import { Close } from '../common/components'

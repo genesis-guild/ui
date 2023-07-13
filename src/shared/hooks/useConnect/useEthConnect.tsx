@@ -1,13 +1,22 @@
 import { useMemo } from 'react'
-import { ConnectAccountType } from 'shared/types'
-import { ChainType, WalletTag } from 'shared/types/chain'
-import { log } from 'shared/utils/log'
-import { useAccount, useConnect as useConnectWagmi, useDisconnect } from 'wagmi'
+import {
+  useAccount,
+  useConnect as useConnectWagmi,
+  useDisconnect,
+  useSignMessage,
+} from 'wagmi'
 
+import { ChainType, ConnectAccountType, WalletTag , MessageEvent } from 'shared/types'
+
+import { log } from 'shared/utils/log'
+
+import { publishMessage } from '../useSubscribeToMessage'
 import { UseConnectNetType } from './types'
+import { handleConnect } from './utils/handleConnect'
 
 export const useEthConntect = (): UseConnectNetType => {
-  const { connect: connectWagmi, connectors, isLoading } = useConnectWagmi()
+  const { connectAsync: connectWagmi, connectors } = useConnectWagmi()
+  const { signMessageAsync: signMessageWagmi } = useSignMessage()
   const { address, isConnected } = useAccount()
   const { disconnect: wagmiDisconnect } = useDisconnect()
 
@@ -34,12 +43,18 @@ export const useEthConntect = (): UseConnectNetType => {
       return
     }
 
-    connectWagmi({ connector })
+    handleConnect(connectWagmi({ connector }), ChainType.ETH)
+  }
+
+  const signMessage = (message: string): void => {
+    signMessageWagmi({ message }).then(res => {
+      publishMessage(MessageEvent.VERIFY_MESSAGE, { signature: res })
+    })
   }
 
   const disconnect = (): void => {
     wagmiDisconnect()
   }
 
-  return { connect, disconnect, account, isLoading }
+  return { connect, disconnect, account, signMessage }
 }

@@ -1,7 +1,9 @@
 import { AppBar, Box, Button, Toolbar } from '@mui/material'
-import { WalletContext } from 'app/contexts'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+
+import { WalletContext } from 'app/contexts'
+
 import { LogoWhite } from 'shared/assets/icons'
 
 import { Connect, Nav, Profile } from './components'

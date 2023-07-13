@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /// <reference types="vite/client" />
 import { Theme as MuiTheme, TypographyStyle } from '@mui/material'
+
 import { CustomTheme, Typography } from 'app/theme/types'
+
+import { MESSAGE_BROKER_NAMESPACE, MessageBrokerHandlers } from 'shared/types'
 
 declare module '*.svg' {
   import React = require('react')
@@ -16,6 +19,7 @@ declare global {
     ethereum: any
     __suiet__: any
     phantom: any
+    [MESSAGE_BROKER_NAMESPACE]: MessageBrokerHandlers | undefined
 
     CSS: { registerProperty: (property: any) => void }
   }

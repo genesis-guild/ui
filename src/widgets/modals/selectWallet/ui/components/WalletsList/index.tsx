@@ -1,4 +1,5 @@
 import { List } from '@mui/material'
+
 import { WalletTag } from 'shared/types/chain'
 
 import { WalletItem } from '../WalletItem'

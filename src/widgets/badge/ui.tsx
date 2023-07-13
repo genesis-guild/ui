@@ -1,4 +1,5 @@
 import { Button, Typography, useTheme } from '@mui/material'
+
 import { BadgeLogo } from 'shared/assets/icons/badge_logo'
 import { BadgeLogoContainer } from 'shared/assets/icons/badge_logo_container'
 import { ProfileCube } from 'shared/assets/icons/profile_cube'
@@ -19,6 +20,7 @@ export const Badge: React.FC = () => {
   const accountLvl = AccountLvl.NoLvl
   const color = getLvlColor(theme, accountLvl)
 
+  // TODO: should be from api
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (accountLvl === AccountLvl.NoLvl) {
     return (

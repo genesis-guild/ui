@@ -1,4 +1,5 @@
 import { Button, Typography, useTheme } from '@mui/material'
+
 import top_strategies from 'shared/assets/images/top_strategies.png'
 
 import {

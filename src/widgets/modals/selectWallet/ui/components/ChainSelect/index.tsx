@@ -1,5 +1,6 @@
 import { SelectChangeEvent } from '@mui/material'
 import { useState } from 'react'
+
 import { Select } from 'shared/components/select'
 import { SelectItem } from 'shared/components/select/ui'
 import { ChainType } from 'shared/types/chain'
