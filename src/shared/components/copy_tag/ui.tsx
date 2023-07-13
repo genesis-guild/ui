@@ -1,4 +1,5 @@
 import { Box, Tooltip, Typography, useTheme } from '@mui/material'
+import { trunckate } from 'shared/utils'
 import useCopy from 'use-copy'
 
 import { BorderButton } from '../border_button'
@@ -7,8 +8,6 @@ interface Props {
   text: string
   maxSymbols?: number
 }
-
-const END_SYMBOLS_COUNT = 3
 
 export const CopyTag: React.FC<Props> = ({ text, maxSymbols = 8 }) => {
   const theme = useTheme()
@@ -33,13 +32,9 @@ export const CopyTag: React.FC<Props> = ({ text, maxSymbols = 8 }) => {
           hover={theme.custom.colors.surface2.hover}
           borderRadius='10px'
         >
-          <Typography variant='caption2'>{`${text.slice(
-            0,
-            maxSymbols - END_SYMBOLS_COUNT,
-          )}...${text.slice(
-            text.length - END_SYMBOLS_COUNT,
-            text.length,
-          )}`}</Typography>
+          <Typography variant='caption2'>
+            {trunckate(text, maxSymbols / 2)}
+          </Typography>
         </BorderButton>
       </Tooltip>
     </Box>

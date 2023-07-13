@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from '@mui/material'
-import { ProfilePicture } from 'shared/components/profile_picture'
+import { ProfilePicture } from 'shared/components'
 import { AccountLvl, Sizes } from 'shared/components/profile_picture/types'
 
 export const UI_KIT: React.FC = () => {
