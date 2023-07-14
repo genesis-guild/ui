@@ -9,9 +9,9 @@ export const menuItem: Theme['components'] = {
         '&:hover': {
           background: custom.colors.surface1.hover,
         },
-      },
-      selected: {
-        backgroundColor: custom.colors.surface1.hover,
+        '&.Mui-selected': {
+          backgroundColor: custom.colors.surface1.hover,
+        },
       },
     },
   },

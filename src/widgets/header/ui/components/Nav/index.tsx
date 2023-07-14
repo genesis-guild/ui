@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import { Link, useLocation } from 'react-router-dom'
 
 import { CommunityMarket, GuildMarket } from 'shared/assets/icons'
-import { Dropdown, DropdownItem } from 'shared/components/dropdown'
+import { Dropdown, DropdownItem } from 'shared/components'
 
 import { MenuLink } from '../MenuLink'
 import { ClaimBadgeButton } from './components'
@@ -31,7 +31,7 @@ export const Nav: React.FC = () => {
         width='200px'
         noArrow
         items={[
-          <Link to='/marketplace/community'>
+          <Link to='/marketplace/community' key='community'>
             <DropdownItem
               leftIcon={<CommunityMarket width={24} height={24} />}
               sx={{ padding: '8px' }}
@@ -39,7 +39,7 @@ export const Nav: React.FC = () => {
               Community
             </DropdownItem>
           </Link>,
-          <Link to='/marketplace/guild'>
+          <Link to='/marketplace/guild' key='guild'>
             <DropdownItem
               leftIcon={<GuildMarket width={24} height={24} />}
               sx={{ padding: '8px' }}

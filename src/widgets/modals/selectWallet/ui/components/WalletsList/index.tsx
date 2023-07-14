@@ -22,6 +22,7 @@ export const WalletsList: React.FC<Props> = ({ wallets, handleConnect }) => {
       {wallets.map(walletTag => (
         <WalletItem
           onClick={() => handleConnect(walletTag)}
+          key={walletTag}
           walletTag={walletTag}
         />
       ))}

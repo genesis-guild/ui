@@ -1,8 +1,7 @@
 import { SelectChangeEvent } from '@mui/material'
 import { useState } from 'react'
 
-import { Select } from 'shared/components/select'
-import { SelectItem } from 'shared/components/select/ui'
+import { Select, SelectItem } from 'shared/components'
 import { ChainType } from 'shared/types/chain'
 import { SelectOption } from 'shared/types/common'
 
@@ -22,7 +21,11 @@ export const ChainSelect: React.FC<Props> = ({ options, onChainChanged }) => {
   return (
     <Select<ChainType> value={value} onChange={handleChange}>
       {options.map(option => {
-        return <SelectItem value={option.value}>{option.label}</SelectItem>
+        return (
+          <SelectItem value={option.value} key={option.value}>
+            {option.label}
+          </SelectItem>
+        )
       })}
     </Select>
   )
