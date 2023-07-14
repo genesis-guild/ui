@@ -1,5 +1,6 @@
-import { MainLayout } from 'processes/layouts/main'
 import { Route, Routes } from 'react-router-dom'
+
+import { MainLayout } from 'processes/layouts/main'
 
 import { ClaimBadge } from './claim_badge'
 import { Main } from './main'

@@ -1,22 +1,35 @@
-import { SocketsContext } from 'app/contexts'
 import { useContext } from 'react'
-import { ChainType } from 'shared/types'
+
+import { SocketsContext } from 'app/contexts'
+
+import { AccountWS, MessageTX } from 'shared/types'
 import { log } from 'shared/utils/log'
 
 import { EventName, EventNameFactory, EventNamePostfix } from '../common'
 
 interface Emitters {
-  login: (accountId: string, chainType: ChainType) => void
+  login: (account: AccountWS) => void
+  verifyMessage: (signature: MessageTX, account: AccountWS) => void
 }
 
 export const useEmitters = (): Emitters => {
   const { socket } = useContext(SocketsContext)
   const enf = new EventNameFactory(EventNamePostfix.EMITTER_POSTFIX)
 
-  const login = (accountId: string, chainType: ChainType): void => {
+  const login = ({ accountId, chainType }: AccountWS): void => {
     emit(EventName.LOGIN, {
       accountId,
       chainType,
+    })
+  }
+
+  const verifyMessage = (signature: MessageTX, account: AccountWS): void => {
+    emit(EventName.VERIFY_MESSAGE, {
+      signature,
+      account: {
+        chainType: account.chainType,
+        accountId: account.accountId,
+      },
     })
   }
 
@@ -37,5 +50,5 @@ export const useEmitters = (): Emitters => {
     socket.emit(enf.get(en), data)
   }
 
-  return { login }
+  return { login, verifyMessage }
 }

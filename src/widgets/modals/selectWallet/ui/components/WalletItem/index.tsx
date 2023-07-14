@@ -5,6 +5,7 @@ import {
   ListItemButton,
   Typography,
 } from '@mui/material'
+
 import {
   MetamaskLogoIcon,
   PhantomIcon,

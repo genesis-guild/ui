@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+
 import { Close as CloseIcon } from 'shared/assets/icons/close'
 
 interface Props {

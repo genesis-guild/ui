@@ -1,6 +1,8 @@
 import { Box, Button } from '@mui/material'
-import { useModal } from 'shared/hooks'
+
 import { SelectWalletModal } from 'widgets/modals'
+
+import { useModal } from 'shared/hooks'
 
 export const Connect: React.FC = () => {
   const [Modal, onOpen] = useModal(SelectWalletModal)

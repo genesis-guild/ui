@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
+
 import { ModalCommonProps } from 'shared/types'
 
 type ReturnType<P> = [

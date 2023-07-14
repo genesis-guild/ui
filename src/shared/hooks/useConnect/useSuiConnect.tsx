@@ -1,9 +1,11 @@
 import { useWallet } from '@suiet/wallet-kit'
 import { useMemo } from 'react'
+
 import { ChainType, ConnectAccountType, WalletTag } from 'shared/types'
 import { log } from 'shared/utils/log'
 
 import { UseConnectNetType } from './types'
+import { handleConnect } from './utils/handleConnect'
 
 export const useSuiConnect = (): UseConnectNetType => {
   const {
@@ -11,7 +13,6 @@ export const useSuiConnect = (): UseConnectNetType => {
     connected,
     address,
     configuredWallets,
-    status,
     disconnect: suiDisconnect,
   } = useWallet()
 
@@ -40,7 +41,7 @@ export const useSuiConnect = (): UseConnectNetType => {
       return
     }
 
-    select(wallet.name)
+    handleConnect(select(wallet.name), ChainType.SUI)
   }
 
   const disconnect = (): void => {
@@ -49,5 +50,12 @@ export const useSuiConnect = (): UseConnectNetType => {
     }
   }
 
-  return { connect, disconnect, account, isLoading: status === 'connecting' }
+  const signMessage = (): void => {}
+
+  return {
+    connect,
+    disconnect,
+    signMessage,
+    account,
+  }
 }

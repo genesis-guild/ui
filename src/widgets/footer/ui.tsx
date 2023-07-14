@@ -1,4 +1,5 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
+
 import { LogoWhite } from 'shared/assets/icons/logo'
 import { Medium } from 'shared/assets/icons/medium'
 import { Telegram } from 'shared/assets/icons/telegram'

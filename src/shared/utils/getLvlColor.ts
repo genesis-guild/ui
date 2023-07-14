@@ -1,4 +1,5 @@
 import { Theme } from '@mui/material/styles'
+
 import { AccountLvl } from 'shared/components/profile_picture/types'
 
 export const getLvlColor = (theme: Theme, lvl: AccountLvl): string => {

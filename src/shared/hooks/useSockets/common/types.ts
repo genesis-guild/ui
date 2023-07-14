@@ -4,6 +4,7 @@ export enum EventName {
   LIST = 'list',
   LOGIN = 'login',
   SIGN_MESSAGE = 'sign_message',
+  VERIFY_MESSAGE = 'verify_message',
 }
 
 export enum EventNamePostfix {

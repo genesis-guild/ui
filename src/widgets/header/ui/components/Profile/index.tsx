@@ -1,13 +1,16 @@
 import { Box, Button } from '@mui/material'
-import { WalletContext } from 'app/contexts'
 import { useContext } from 'react'
+
+import { WalletContext } from 'app/contexts'
+
+import { SelectWalletModal } from 'widgets/modals'
+
 import { Dropdown, DropdownItem, ProfilePicture } from 'shared/components'
 import { AccountLvl } from 'shared/components/profile_picture/types'
 import { useModal } from 'shared/hooks'
 import { useConnect } from 'shared/hooks/useConnect'
 import { WalletTag } from 'shared/types'
 import { getWalletIcon, trunckate } from 'shared/utils'
-import { SelectWalletModal } from 'widgets/modals'
 
 import { Avatar, ProfileMenu, RightPanel } from './styles'
 
@@ -22,7 +25,7 @@ export const Profile: React.FC = () => {
     <DropdownItem onClick={() => openSelectWalletModal({})}>
       Switch account
     </DropdownItem>,
-    <DropdownItem onClick={disconnect}>
+    <DropdownItem onClick={() => disconnect(activeAccount?.chainType)}>
       <Box sx={theme => ({ color: theme.custom.colors.neutral.text_dark })}>
         Log out
       </Box>

@@ -1,4 +1,5 @@
 import { Box, Button, Dialog, Typography, useTheme } from '@mui/material'
+
 import { BorderButton } from 'shared/components'
 import { CopyTag } from 'shared/components/copy_tag'
 import { ConnectAccountType, ModalCommonProps } from 'shared/types'

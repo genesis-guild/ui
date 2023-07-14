@@ -8,6 +8,7 @@ import {
   Typography,
 } from '@mui/material'
 import React, { useState } from 'react'
+
 import { ArrowDown } from 'shared/assets/icons/arrow_down'
 
 import { ArrowContainer } from './style'

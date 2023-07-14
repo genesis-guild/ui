@@ -1,5 +1,6 @@
 import { Box, Dialog, Typography } from '@mui/material'
 import { useState } from 'react'
+
 import { EtheriumIcon, SolanaIcon } from 'shared/assets/icons'
 import { Close } from 'shared/assets/icons/close'
 import { useConnect } from 'shared/hooks/useConnect'

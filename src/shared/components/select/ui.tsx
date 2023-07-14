@@ -6,6 +6,7 @@ import {
   Select as MuiSelect,
   SelectProps,
 } from '@mui/material'
+
 import { SelectArrow } from 'shared/assets/icons'
 
 const paperStyles = {

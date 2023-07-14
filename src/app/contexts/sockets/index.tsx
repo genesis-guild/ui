@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useMemo, useState } from 'react'
+import { Socket, io } from 'socket.io-client'
+
 import { useHandlers } from 'shared/hooks/useSockets'
 import { log } from 'shared/utils/log'
-import { Socket, io } from 'socket.io-client'
 
 export const SocketsContext = createContext<{
   socket: Socket | undefined

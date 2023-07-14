@@ -1,4 +1,5 @@
 import { Box, Button, Typography } from '@mui/material'
+
 import { ProfilePicture } from 'shared/components'
 import { AccountLvl, Sizes } from 'shared/components/profile_picture/types'
 
