@@ -11,9 +11,11 @@
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
     "^app/(.*)$",
-    "^pages/(.*)$",
     "^processes/(.*)$",
+    "^pages/(.*)$",
     "^widgets/(.*)$",
+    "^features/(.*)$",
+    "^entities/(.*)$",
     "^shared/(.*)$",
     "^[./]"
   ]
