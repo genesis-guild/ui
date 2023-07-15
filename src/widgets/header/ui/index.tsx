@@ -2,11 +2,13 @@ import { AppBar, Box, Button, Toolbar } from '@mui/material'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
-import { WalletContext } from 'app/contexts'
+import { WalletContext } from 'entities/wallet'
 
 import { LogoWhite } from 'shared/assets/icons'
 
-import { Connect, Nav, Profile } from './components'
+import { Connect } from './Connect'
+import { Nav } from './Nav'
+import { Profile } from './Profile'
 
 export const AppHeader: React.FC = () => {
   const { activeAccount } = useContext(WalletContext)

@@ -1,9 +1,6 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
 
-import { LogoWhite } from 'shared/assets/icons/logo'
-import { Medium } from 'shared/assets/icons/medium'
-import { Telegram } from 'shared/assets/icons/telegram'
-import { Twitter } from 'shared/assets/icons/twitter'
+import { LogoWhite, Medium, Telegram, Twitter } from 'shared/assets/icons'
 
 import {
   Category,
@@ -13,7 +10,7 @@ import {
   Link,
   Links,
   Right,
-} from './style'
+} from './styles'
 
 export const Footer: React.FC = () => {
   const theme = useTheme()
