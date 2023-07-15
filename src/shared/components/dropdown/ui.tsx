@@ -9,9 +9,9 @@ import {
 } from '@mui/material'
 import React, { useState } from 'react'
 
-import { ArrowDown } from 'shared/assets/icons/arrow_down'
+import { ArrowDown } from 'shared/assets/icons'
 
-import { ArrowContainer } from './style'
+import { ArrowContainer } from './styles'
 
 interface DropdownProps {
   items: React.ReactNode[]

@@ -1,4 +1,4 @@
-import { AccountLvl } from 'shared/components/profile_picture/types'
+import { AccountLvl } from 'shared/components'
 
 import { IconProps } from '../types'
 
