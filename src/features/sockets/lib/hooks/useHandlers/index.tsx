@@ -1,7 +1,7 @@
 import { Socket } from 'socket.io-client'
 
 import { publishMessage } from 'shared/hooks'
-import { AccountWS, MessageEvent } from 'shared/types'
+import { AccountWS, MessageEvent, Tokens } from 'shared/types'
 import { log } from 'shared/utils'
 
 import { EventName, EventNamePostfix } from '../../types'
@@ -18,7 +18,7 @@ export const useHandlers = (): ReturnType => {
     log('info', 'handlers initialized')
 
     handleSignMessage(socket)
-    handleLogin(socket)
+    handleTokens(socket)
   }
 
   const handleSignMessage = (socket: Socket): void => {
@@ -37,18 +37,15 @@ export const useHandlers = (): ReturnType => {
     })
   }
 
-  const handleLogin = (socket: Socket): void => {
-    socket.on(enf.get(EventName.LOGIN), (account: AccountWS) => {
-      log(
-        'info',
-        'handling event',
-        enf.get(EventName.LOGIN),
-        'with account',
-        account,
-      )
+  const handleTokens = (socket: Socket): void => {
+    socket.on(
+      enf.get(EventName.TOKENS),
+      ({ tokens, account }: { tokens: Tokens; account: AccountWS }) => {
+        log('info', 'handling event', enf.get(EventName.TOKENS))
 
-      // TODO: handle next sign message
-    })
+        publishMessage(MessageEvent.TOKENS, { tokens, account })
+      },
+    )
   }
 
   return { init }

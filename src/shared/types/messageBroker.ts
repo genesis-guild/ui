@@ -1,4 +1,5 @@
-import { ChainType, MessageTX } from './chain'
+import { AccountWS, ChainType, MessageTX } from './chain'
+import { Tokens } from './common'
 
 export const MESSAGE_BROKER_NAMESPACE = '__MESSAGE_BROKER__'
 
@@ -7,6 +8,7 @@ export enum MessageEvent {
   CONNECTION_LOADING = 'CONNECTION_LOADING',
   VERIFY_MESSAGE = 'VERIFY_MESSAGE',
   LOGIN = 'LOGIN',
+  TOKENS = 'TOKENS',
 }
 
 export interface EventPayload<M> {
@@ -28,6 +30,7 @@ export interface HandlerDataType {
     signature: MessageTX
   }
   [MessageEvent.LOGIN]: undefined
+  [MessageEvent.TOKENS]: { tokens: Tokens; account: AccountWS }
 }
 
 export interface HandlerType<E extends MessageEvent> {
