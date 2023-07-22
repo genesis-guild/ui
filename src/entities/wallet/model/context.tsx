@@ -63,13 +63,15 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useSubscribeToMessage(
     MessageEvent.SIGN_MESSAGE,
-    // TODO: signMessage
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ({ message }) => {
-      // signMessage(activeAccount?.chainType, message)
+      signMessage(activeAccount?.chainType, message)
     },
     [activeAccount, signMessage],
   )
+
+  useSubscribeToMessage(MessageEvent.TOKENS, ({ tokens, account }) => {
+    localStorage.setItem(JSON.stringify(account), JSON.stringify(tokens))
+  })
 
   useSubscribeToMessage(
     MessageEvent.CONNECTION_LOADING,

@@ -12,3 +12,8 @@ export interface ModalCommonProps {
   isOpen: boolean
   onClose: () => void
 }
+
+export interface Tokens {
+  at: string
+  rt: string
+}
