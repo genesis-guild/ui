@@ -7,12 +7,7 @@ import {
 } from 'wagmi'
 
 import { publishMessage } from 'shared/hooks'
-import {
-  ChainType,
-  ConnectAccountType,
-  MessageEvent,
-  WalletTag,
-} from 'shared/types'
+import { Account, ChainType, MessageEvent, WalletTag } from 'shared/types'
 import { log } from 'shared/utils'
 
 import { UseConnectNetType } from './common/types'
@@ -25,11 +20,13 @@ export const useEthConntect = (): UseConnectNetType => {
   const { disconnect: wagmiDisconnect } = useDisconnect()
 
   const account = useMemo(
-    (): ConnectAccountType => ({
-      connected: isConnected,
-      address,
-      chainType: ChainType.ETH,
-    }),
+    (): Account | undefined =>
+      isConnected && address
+        ? {
+            address,
+            chainType: ChainType.ETH,
+          }
+        : undefined,
     [isConnected, address],
   )
 

@@ -47,8 +47,8 @@ export const AppHeader: React.FC = () => {
           </Box>
           <Box sx={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
             <Nav />
-            {!!activeAccount && <Button variant='contained'>Rent NFTs</Button>}
-            {!!activeAccount && <Profile />}
+            {activeAccount && <Button variant='contained'>Rent NFTs</Button>}
+            {activeAccount && <Profile account={activeAccount} />}
           </Box>
           {!activeAccount && <Connect />}
         </Toolbar>

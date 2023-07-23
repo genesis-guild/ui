@@ -1,4 +1,4 @@
-import { AccountWS, ChainType, MessageTX } from './chain'
+import { Account, ChainType, MessageTX } from './chain'
 import { Tokens } from './common'
 
 export const MESSAGE_BROKER_NAMESPACE = '__MESSAGE_BROKER__'
@@ -30,7 +30,7 @@ export interface HandlerDataType {
     signature: MessageTX
   }
   [MessageEvent.LOGIN]: undefined
-  [MessageEvent.TOKENS]: { tokens: Tokens; account: AccountWS }
+  [MessageEvent.TOKENS]: { tokens: Tokens; account: Account }
 }
 
 export interface HandlerType<E extends MessageEvent> {

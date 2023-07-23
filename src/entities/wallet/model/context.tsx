@@ -1,18 +1,15 @@
 import { createContext, useEffect, useMemo, useState } from 'react'
 
 import { useSubscribeToMessage } from 'shared/hooks'
-import { ChainType, ConnectAccountType, MessageEvent } from 'shared/types'
+import { Account, ChainType, MessageEvent } from 'shared/types'
 import { log } from 'shared/utils'
 
 import { useConnect, useEthConntect, useSuiConnect } from '../lib/hooks'
 
 interface WalletContextType {
-  activeAccount: ConnectAccountType | undefined
+  activeAccount: Account | undefined
   accountIsLoading: boolean
-  sessionAccounts: [
-    ConnectAccountType | undefined,
-    ConnectAccountType | undefined,
-  ]
+  sessionAccounts: [Account | undefined, Account | undefined]
 }
 
 export const WalletContext = createContext<WalletContextType>({
@@ -36,7 +33,7 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({
   })
 
   const activeAccount = useMemo(
-    () => [ethAccount, suiAccount].find(a => a.connected),
+    (): Account | undefined => [ethAccount, suiAccount].find(a => a),
     [ethAccount, suiAccount],
   )
   const accountIsLoading = useMemo(
@@ -64,7 +61,9 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({
   useSubscribeToMessage(
     MessageEvent.SIGN_MESSAGE,
     ({ message }) => {
-      signMessage(activeAccount?.chainType, message)
+      if (!activeAccount) return
+
+      signMessage(activeAccount.chainType, message)
     },
     [activeAccount, signMessage],
   )

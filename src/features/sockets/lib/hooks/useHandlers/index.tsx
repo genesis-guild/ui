@@ -1,7 +1,7 @@
 import { Socket } from 'socket.io-client'
 
 import { publishMessage } from 'shared/hooks'
-import { AccountWS, MessageEvent, Tokens } from 'shared/types'
+import { Account, MessageEvent, Tokens } from 'shared/types'
 import { log } from 'shared/utils'
 
 import { EventName, EventNamePostfix } from '../../types'
@@ -40,7 +40,7 @@ export const useHandlers = (): ReturnType => {
   const handleTokens = (socket: Socket): void => {
     socket.on(
       enf.get(EventName.TOKENS),
-      ({ tokens, account }: { tokens: Tokens; account: AccountWS }) => {
+      ({ tokens, account }: { tokens: Tokens; account: Account }) => {
         log('info', 'handling event', enf.get(EventName.TOKENS))
 
         publishMessage(MessageEvent.TOKENS, { tokens, account })

@@ -1,12 +1,9 @@
 import { Box, Button, Dialog, Typography, useTheme } from '@mui/material'
 
 import { BorderButton, Close, CopyTag } from 'shared/components'
-import { ConnectAccountType, ModalCommonProps } from 'shared/types'
+import { ModalCommonProps } from 'shared/types'
 
-type Props = ModalCommonProps & {
-  prevAccount: ConnectAccountType
-  newAccount: ConnectAccountType
-}
+type Props = ModalCommonProps
 
 export const LinkWalletModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const theme = useTheme()

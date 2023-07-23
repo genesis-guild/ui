@@ -5,8 +5,8 @@ import { useSuiConnect } from './useSuiConnect'
 
 interface UseConnectType {
   connect: (chainType: ChainType, walletTag: WalletTag) => void
-  disconnect: (chainType: ChainType | undefined) => void
-  signMessage: (chainType: ChainType | undefined, message: string) => void
+  disconnect: (chainType: ChainType) => void
+  signMessage: (chainType: ChainType, message: string) => void
 }
 
 export { useEthConntect, useSuiConnect }
@@ -44,9 +44,7 @@ export const useConnect = (): UseConnectType => {
     disconnectOther(chainType)
   }
 
-  const disconnect = (chainType: ChainType | undefined): void => {
-    if (!chainType) return
-
+  const disconnect = (chainType: ChainType): void => {
     switch (chainType) {
       case ChainType.ETH:
         ethDisconnect()
@@ -57,12 +55,7 @@ export const useConnect = (): UseConnectType => {
     }
   }
 
-  const signMessage = (
-    chainType: ChainType | undefined,
-    message: string,
-  ): void => {
-    if (!chainType) return
-
+  const signMessage = (chainType: ChainType, message: string): void => {
     switch (chainType) {
       case ChainType.ETH:
         ethSignMessage(message)
