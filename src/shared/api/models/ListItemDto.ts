@@ -1,5 +1,6 @@
 /* istanbul ignore file */
 
+
 /* eslint-disable */
 import type { GameDto } from './GameDto'
 import type { NftDto } from './NftDto'
