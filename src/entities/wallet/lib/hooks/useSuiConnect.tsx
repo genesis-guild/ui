@@ -1,7 +1,7 @@
 import { useWallet } from '@suiet/wallet-kit'
 import { useMemo } from 'react'
 
-import { ChainType, ConnectAccountType, WalletTag } from 'shared/types'
+import { Account, ChainType, WalletTag } from 'shared/types'
 import { log } from 'shared/utils'
 
 import { UseConnectNetType } from './common/types'
@@ -17,11 +17,13 @@ export const useSuiConnect = (): UseConnectNetType => {
   } = useWallet()
 
   const account = useMemo(
-    (): ConnectAccountType => ({
-      connected,
-      address,
-      chainType: ChainType.SUI,
-    }),
+    (): Account | undefined =>
+      connected && address
+        ? {
+            address,
+            chainType: ChainType.SUI,
+          }
+        : undefined,
     [connected, address],
   )
 

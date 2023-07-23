@@ -1,9 +1,8 @@
 import { Box, Button } from '@mui/material'
-import { useContext } from 'react'
 
 import { SelectWalletModal } from 'features/modals'
 
-import { WalletContext, useConnect } from 'entities/wallet'
+import { useConnect } from 'entities/wallet'
 
 import {
   AccountLvl,
@@ -12,14 +11,14 @@ import {
   ProfilePicture,
 } from 'shared/components'
 import { useModal } from 'shared/hooks'
-import { WalletTag } from 'shared/types'
+import { Account, WalletTag } from 'shared/types'
 import { getWalletIcon, trunckate } from 'shared/utils'
 
 import { Avatar, ProfileMenu, RightPanel } from './styles'
 
-export const Profile: React.FC = () => {
+export const Profile: React.FC<{ account: Account }> = ({ account }) => {
   const { disconnect } = useConnect()
-  const { activeAccount } = useContext(WalletContext)
+
   const [Modal, openSelectWalletModal] = useModal(SelectWalletModal)
   const WalletIcon = getWalletIcon(WalletTag.Metamask)
 
@@ -28,7 +27,7 @@ export const Profile: React.FC = () => {
     <DropdownItem onClick={() => openSelectWalletModal({})}>
       Switch account
     </DropdownItem>,
-    <DropdownItem onClick={() => disconnect(activeAccount?.chainType)}>
+    <DropdownItem onClick={() => disconnect(account.chainType)}>
       <Box sx={theme => ({ color: theme.custom.colors.neutral.text_dark })}>
         Log out
       </Box>
@@ -47,7 +46,7 @@ export const Profile: React.FC = () => {
       </Button>
       <ProfileMenu>
         <Dropdown
-          title={trunckate(activeAccount?.address ?? '')}
+          title={trunckate(account.address)}
           offsetLeft='52px'
           width='240px'
           items={profileDropdownItems}

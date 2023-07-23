@@ -14,12 +14,9 @@ export const Auth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   useSubscribeToMessage(
     MessageEvent.LOGIN,
     () => {
-      if (!activeAccount?.address) return
+      if (!activeAccount) return
 
-      login({
-        accountId: activeAccount.address,
-        chainType: activeAccount.chainType,
-      })
+      login(activeAccount)
     },
     [activeAccount],
   )
@@ -27,12 +24,9 @@ export const Auth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   useSubscribeToMessage(
     MessageEvent.VERIFY_MESSAGE,
     ({ signature }) => {
-      if (!activeAccount?.address) return
+      if (!activeAccount) return
 
-      verifyMessage(signature, {
-        accountId: activeAccount.address,
-        chainType: activeAccount.chainType,
-      })
+      verifyMessage(signature, activeAccount)
     },
     [activeAccount, verifyMessage],
   )

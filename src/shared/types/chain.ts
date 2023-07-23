@@ -12,7 +12,7 @@ export enum WalletTag {
 
 export type MessageTX = `0x${string}`
 
-export interface AccountWS {
+export interface Account {
   chainType: ChainType
-  accountId: string
+  address: string
 }
