@@ -2,7 +2,7 @@ import { createContext, useEffect, useMemo, useState } from 'react'
 
 import { useSubscribeToMessage } from 'shared/hooks'
 import { Account, ChainType, MessageEvent } from 'shared/types'
-import { log } from 'shared/utils'
+import { log, stringifyAccount } from 'shared/utils'
 
 import { useConnect, useEthConntect, useSuiConnect } from '../lib/hooks'
 
@@ -69,7 +69,7 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({
   )
 
   useSubscribeToMessage(MessageEvent.TOKENS, ({ tokens, account }) => {
-    localStorage.setItem(JSON.stringify(account), JSON.stringify(tokens))
+    localStorage.setItem(stringifyAccount(account), JSON.stringify(tokens))
   })
 
   useSubscribeToMessage(
@@ -85,8 +85,12 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     if (accountIsLoading) return
 
-    if (!activeAccount) setSessionAccounts([undefined, undefined])
+    if (!activeAccount) {
+      setSessionAccounts([undefined, undefined])
+      localStorage.removeItem('account')
+    }
 
+    localStorage.setItem('account', JSON.stringify(activeAccount))
     setSessionAccounts(([, curr]) => [curr, activeAccount])
   }, [activeAccount, accountIsLoading])
 

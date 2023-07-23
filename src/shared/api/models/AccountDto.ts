@@ -3,7 +3,7 @@
 
 export type AccountDto = {
   hasBadge: boolean
-  accountId: string
+  address: string
   chainType: AccountDto.chainType
   linked: boolean
 }

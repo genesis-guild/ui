@@ -1,9 +1,7 @@
 import { useContext } from 'react'
 
-import { WalletContext } from 'entities/wallet'
-
 import { Account, MessageTX } from 'shared/types'
-import { log } from 'shared/utils'
+import { getAccount, getAccountAT, log } from 'shared/utils'
 
 import { SocketsContext } from '../../../model'
 import { EventName, EventNamePostfix } from '../../types'
@@ -15,7 +13,6 @@ interface Emitters {
 }
 
 export const useEmitters = (): Emitters => {
-  const { activeAccount } = useContext(WalletContext)
   const { socket } = useContext(SocketsContext)
   const enf = new EventNameFactory(EventNamePostfix.EMITTER_POSTFIX)
 
@@ -26,10 +23,7 @@ export const useEmitters = (): Emitters => {
   const verifyMessage = (signature: MessageTX, account: Account): void => {
     emit(EventName.VERIFY_MESSAGE, {
       signature,
-      account: {
-        chainType: account.chainType,
-        address: account.address,
-      },
+      account,
     })
   }
 
@@ -45,12 +39,8 @@ export const useEmitters = (): Emitters => {
       return
     }
 
-    const at = localStorage.getItem(
-      JSON.stringify({
-        address: activeAccount?.address,
-        chainType: activeAccount?.chainType,
-      }),
-    )
+    const at = getAccountAT()
+    const account = getAccount()
 
     log('info', 'emitting event', enf.get(en), 'with data', data)
 
@@ -58,7 +48,7 @@ export const useEmitters = (): Emitters => {
       data,
       auth: {
         at,
-        account: activeAccount,
+        account,
       },
     })
   }
