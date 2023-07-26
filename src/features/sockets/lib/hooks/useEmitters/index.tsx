@@ -16,8 +16,8 @@ export const useEmitters = (): Emitters => {
   const { socket } = useContext(SocketsContext)
   const enf = new EventNameFactory(EventNamePostfix.EMITTER_POSTFIX)
 
-  const login = (account: Account): void => {
-    emit(EventName.LOGIN, account)
+  const login = (): void => {
+    emit(EventName.LOGIN)
   }
 
   const verifyMessage = (signature: MessageTX, account: Account): void => {
