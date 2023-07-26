@@ -83,14 +83,22 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({
   )
 
   useEffect(() => {
+    if (!activeAccount) {
+      localStorage.removeItem('account')
+
+      return
+    }
+
+    localStorage.setItem('account', JSON.stringify(activeAccount))
+  }, [activeAccount])
+
+  useEffect(() => {
     if (accountIsLoading) return
 
     if (!activeAccount) {
       setSessionAccounts([undefined, undefined])
-      localStorage.removeItem('account')
     }
 
-    localStorage.setItem('account', JSON.stringify(activeAccount))
     setSessionAccounts(([, curr]) => [curr, activeAccount])
   }, [activeAccount, accountIsLoading])
 
