@@ -149,8 +149,6 @@ const getHeaders = async (
   const account = stringifyAccount(getAccount())
   const additionalHeaders = await resolve(options, config.HEADERS)
 
-  console.log(account, 'account')
-
   const headers = Object.entries({
     Accept: 'application/json',
     ...additionalHeaders,

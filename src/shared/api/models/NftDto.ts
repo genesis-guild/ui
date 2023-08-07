@@ -1,7 +1,6 @@
 /* istanbul ignore file */
 
 
-
 /* eslint-disable */
 import type { NftContractDto } from './NftContractDto'
 
