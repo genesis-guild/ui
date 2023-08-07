@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Socket } from 'socket.io-client'
 
 import { publishMessage } from 'shared/hooks'
@@ -7,37 +8,38 @@ import { log } from 'shared/utils'
 import { EventName, EventNamePostfix } from '../../types'
 import { EventNameFactory } from '../../utils'
 
-interface ReturnType {
-  init: (socket: Socket) => void
-}
-
-export const useHandlers = (): ReturnType => {
+export const useHandlers = (socket: Socket): void => {
   const enf = new EventNameFactory(EventNamePostfix.HANDLER_POSTFIX)
 
-  const init = (socket: Socket): void => {
-    log('info', 'handlers initialized')
+  const init = (): void => {
+    log('info', 'sockets initialized', socket)
 
-    handleSignMessage(socket)
-    handleTokens(socket)
+    handleSignMessage()
+    handleTokens()
+    loggedIn()
   }
 
-  const handleSignMessage = (socket: Socket): void => {
-    socket.on(enf.get(EventName.SIGN_MESSAGE), (message: string) => {
-      log(
-        'info',
-        'handling event',
-        enf.get(EventName.SIGN_MESSAGE),
-        'with data',
-        message,
-      )
+  const handleSignMessage = (): void => {
+    socket.on(
+      enf.get(EventName.SIGN_MESSAGE),
+      ({ message, account }: { message: string; account: Account }) => {
+        log(
+          'info',
+          'handling event',
+          enf.get(EventName.SIGN_MESSAGE),
+          'with data',
+          message,
+        )
 
-      publishMessage(MessageEvent.SIGN_MESSAGE, {
-        message,
-      })
-    })
+        publishMessage(MessageEvent.SIGN_MESSAGE, {
+          message,
+          account,
+        })
+      },
+    )
   }
 
-  const handleTokens = (socket: Socket): void => {
+  const handleTokens = (): void => {
     socket.on(
       enf.get(EventName.TOKENS),
       ({ tokens, account }: { tokens: Tokens; account: Account }) => {
@@ -48,5 +50,13 @@ export const useHandlers = (): ReturnType => {
     )
   }
 
-  return { init }
+  const loggedIn = (): void => {
+    socket.on(enf.get(EventName.LOGGED_IN), (account: Account) => {
+      log('info', 'handling event', enf.get(EventName.LOGGED_IN))
+
+      publishMessage(MessageEvent.LOGGED_IN, account)
+    })
+  }
+
+  useMemo(() => init(), [socket])
 }

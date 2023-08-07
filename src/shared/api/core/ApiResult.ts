@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+
 /* eslint-disable */
 export type ApiResult = {
   readonly url: string

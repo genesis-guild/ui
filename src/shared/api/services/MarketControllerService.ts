@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 
 
+
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise'
 import { OpenAPI } from '../core/OpenAPI'

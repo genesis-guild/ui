@@ -1,6 +1,5 @@
 /* istanbul ignore file */
 
-
 /* eslint-disable */
 import { ApiError } from 'shared/api/core/ApiError'
 import type { ApiRequestOptions } from 'shared/api/core/ApiRequestOptions'
@@ -150,6 +149,8 @@ const getHeaders = async (
   const account = stringifyAccount(getAccount())
   const additionalHeaders = await resolve(options, config.HEADERS)
 
+  console.log(account, 'account')
+
   const headers = Object.entries({
     Accept: 'application/json',
     ...additionalHeaders,
@@ -165,11 +166,11 @@ const getHeaders = async (
     )
 
   if (isStringWithValue(account)) {
-    headers['Account'] = account
+    headers['account'] = account
   }
 
   if (isStringWithValue(token)) {
-    headers['Authorization'] = `Bearer ${token}`
+    headers['authorization'] = `Bearer ${token}`
   }
 
   if (options.body) {

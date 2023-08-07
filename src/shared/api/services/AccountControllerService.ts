@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 
 
+
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise'
 import { OpenAPI } from '../core/OpenAPI'
@@ -41,6 +42,18 @@ export class AccountControllerService {
       headers: {
         address: address,
       },
+    })
+  }
+
+  /**
+   * Is account new
+   * @returns any Is account new
+   * @throws ApiError
+   */
+  public static accountControllerIsAccountNew(): CancelablePromise<any> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/account/isAccountNew',
     })
   }
 }

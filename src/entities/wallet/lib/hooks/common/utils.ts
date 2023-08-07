@@ -9,14 +9,10 @@ export const handleConnect = <P>(
     isLoading: true,
     chainType,
   })
-  connectPromise
-    .then(() => {
-      publishMessage(MessageEvent.LOGIN, undefined)
+  connectPromise.finally(() => {
+    publishMessage(MessageEvent.CONNECTION_LOADING, {
+      isLoading: false,
+      chainType,
     })
-    .finally(() => {
-      publishMessage(MessageEvent.CONNECTION_LOADING, {
-        isLoading: false,
-        chainType,
-      })
-    })
+  })
 }
