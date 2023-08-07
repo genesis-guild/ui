@@ -1,15 +1,15 @@
 import { Account, Tokens } from 'shared/types'
 
-export const getAccount = (): Account | undefined => {
-  const accountJSON = localStorage.getItem('account')
+export const getAccount = (key = 'account'): Account | undefined => {
+  const accountJSON = localStorage.getItem(key)
 
   if (!accountJSON) return undefined
 
   return JSON.parse(accountJSON)
 }
 
-export const getAccountAT = (): string | undefined => {
-  const account = getAccount()
+export const getAccountAT = (_account?: Account): string | undefined => {
+  const account = _account ?? getAccount()
 
   const tokens = localStorage.getItem(stringifyAccount(account))
 

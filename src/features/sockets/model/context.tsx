@@ -1,7 +1,5 @@
-import React, { createContext, useEffect, useMemo, useState } from 'react'
-import { Socket, io } from 'socket.io-client'
-
-import { log } from 'shared/utils'
+import React, { createContext, useMemo } from 'react'
+import { Socket } from 'socket.io-client'
 
 import { useHandlers } from '../lib'
 
@@ -11,25 +9,11 @@ export const SocketsContext = createContext<{
   socket: undefined,
 })
 
-export const SocketsProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const { init } = useHandlers()
-  const [socket, setSocket] = useState<Socket>()
-
-  useEffect(() => {
-    const socketLocal = io(import.meta.env.VITE_API_URL)
-
-    setSocket(socketLocal)
-  }, [])
-
-  useEffect(() => {
-    if (socket) {
-      log('info', 'socket initialized')
-
-      init(socket)
-    }
-  }, [socket])
+export const SocketsProvider: React.FC<{
+  children: React.ReactNode
+  socket: Socket
+}> = ({ children, socket }) => {
+  useHandlers(socket)
 
   const value = useMemo(
     () => ({

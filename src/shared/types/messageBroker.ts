@@ -9,6 +9,8 @@ export enum MessageEvent {
   VERIFY_MESSAGE = 'VERIFY_MESSAGE',
   LOGIN = 'LOGIN',
   TOKENS = 'TOKENS',
+  MERGE_ACCOUNTS = 'MERGE_ACCOUNTS',
+  LOGGED_IN = 'LOGGED_IN',
 }
 
 export interface EventPayload<M> {
@@ -21,6 +23,7 @@ export interface EventPayload<M> {
 export interface HandlerDataType {
   [MessageEvent.SIGN_MESSAGE]: {
     message: string
+    account: Account
   }
   [MessageEvent.CONNECTION_LOADING]: {
     isLoading: boolean
@@ -31,6 +34,8 @@ export interface HandlerDataType {
   }
   [MessageEvent.LOGIN]: undefined
   [MessageEvent.TOKENS]: { tokens: Tokens; account: Account }
+  [MessageEvent.MERGE_ACCOUNTS]: [Account, Account]
+  [MessageEvent.LOGGED_IN]: Account
 }
 
 export interface HandlerType<E extends MessageEvent> {

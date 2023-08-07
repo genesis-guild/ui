@@ -8,8 +8,10 @@ import { EventName, EventNamePostfix } from '../../types'
 import { EventNameFactory } from '../../utils'
 
 interface Emitters {
-  login: (account: Account) => void
-  verifyMessage: (signature: MessageTX, account: Account) => void
+  login: () => void
+  verifyMessage: (signature: MessageTX) => void
+  mergeAccounts: (sessionAccount: Account) => void
+  finishLogin: () => void
 }
 
 export const useEmitters = (): Emitters => {
@@ -20,10 +22,20 @@ export const useEmitters = (): Emitters => {
     emit(EventName.LOGIN)
   }
 
-  const verifyMessage = (signature: MessageTX, account: Account): void => {
+  const verifyMessage = (signature: MessageTX): void => {
     emit(EventName.VERIFY_MESSAGE, {
       signature,
-      account,
+    })
+  }
+
+  const finishLogin = (): void => {
+    emit(EventName.FINISH_LOGIN)
+  }
+
+  const mergeAccounts = (sessionAccount: Account): void => {
+    emit(EventName.MERGE, {
+      sessionAccount,
+      authSessionAccount: getAccountAT(sessionAccount),
     })
   }
 
@@ -53,5 +65,5 @@ export const useEmitters = (): Emitters => {
     })
   }
 
-  return { login, verifyMessage }
+  return { login, verifyMessage, mergeAccounts, finishLogin }
 }

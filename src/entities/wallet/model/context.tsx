@@ -1,45 +1,40 @@
 import { createContext, useEffect, useMemo, useState } from 'react'
 
-import { useSubscribeToMessage } from 'shared/hooks'
+import { publishMessage, useSubscribeToMessage } from 'shared/hooks'
 import { Account, ChainType, MessageEvent } from 'shared/types'
-import { log, stringifyAccount } from 'shared/utils'
+import { log } from 'shared/utils'
 
-import { useConnect, useEthConntect, useSuiConnect } from '../lib/hooks'
+import { useEthConntect, useSuiConnect } from '../lib/hooks'
 
 interface WalletContextType {
   activeAccount: Account | undefined
   accountIsLoading: boolean
-  sessionAccounts: [Account | undefined, Account | undefined]
 }
 
 export const WalletContext = createContext<WalletContextType>({
   activeAccount: undefined,
   accountIsLoading: true,
-  sessionAccounts: [undefined, undefined],
 })
 
 export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [sessionAccounts, setSessionAccounts] = useState<
-    WalletContextType['sessionAccounts']
-  >([undefined, undefined])
-  const { signMessage } = useConnect()
   const { account: ethAccount } = useEthConntect()
   const { account: suiAccount } = useSuiConnect()
   const [chainLoading, setIsLoading] = useState<Record<ChainType, boolean>>({
     [ChainType.ETH]: false,
     [ChainType.SUI]: false,
   })
-
   const activeAccount = useMemo(
     (): Account | undefined => [ethAccount, suiAccount].find(a => a),
     [ethAccount, suiAccount],
   )
-  const accountIsLoading = useMemo(
+
+  const connectLoading = useMemo(
     () => Object.values(chainLoading).some(b => b),
     [chainLoading],
   )
+  const accountIsLoading = useMemo(() => connectLoading, [connectLoading])
 
   log(
     'info',
@@ -53,24 +48,9 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({
     (): WalletContextType => ({
       activeAccount,
       accountIsLoading,
-      sessionAccounts,
     }),
-    [activeAccount, accountIsLoading, sessionAccounts],
+    [activeAccount, accountIsLoading],
   )
-
-  useSubscribeToMessage(
-    MessageEvent.SIGN_MESSAGE,
-    ({ message }) => {
-      if (!activeAccount) return
-
-      signMessage(activeAccount.chainType, message)
-    },
-    [activeAccount, signMessage],
-  )
-
-  useSubscribeToMessage(MessageEvent.TOKENS, ({ tokens, account }) => {
-    localStorage.setItem(stringifyAccount(account), JSON.stringify(tokens))
-  })
 
   useSubscribeToMessage(
     MessageEvent.CONNECTION_LOADING,
@@ -90,17 +70,16 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({
     }
 
     localStorage.setItem('account', JSON.stringify(activeAccount))
+    publishMessage(MessageEvent.LOGIN, undefined)
   }, [activeAccount])
 
   useEffect(() => {
-    if (accountIsLoading) return
+    if (connectLoading) return
 
     if (!activeAccount) {
-      setSessionAccounts([undefined, undefined])
+      localStorage.removeItem('sessionAccount')
     }
-
-    setSessionAccounts(([, curr]) => [curr, activeAccount])
-  }, [activeAccount, accountIsLoading])
+  }, [activeAccount, connectLoading])
 
   return (
     <WalletContext.Provider value={value}>{children}</WalletContext.Provider>

@@ -43,4 +43,16 @@ export class AccountControllerService {
       },
     })
   }
+
+  /**
+   * Is account new
+   * @returns any Is account new
+   * @throws ApiError
+   */
+  public static accountControllerIsAccountNew(): CancelablePromise<any> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/account/isAccountNew',
+    })
+  }
 }

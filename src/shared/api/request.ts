@@ -1,6 +1,5 @@
 /* istanbul ignore file */
 
-
 /* eslint-disable */
 import { ApiError } from 'shared/api/core/ApiError'
 import type { ApiRequestOptions } from 'shared/api/core/ApiRequestOptions'
@@ -165,11 +164,11 @@ const getHeaders = async (
     )
 
   if (isStringWithValue(account)) {
-    headers['Account'] = account
+    headers['account'] = account
   }
 
   if (isStringWithValue(token)) {
-    headers['Authorization'] = `Bearer ${token}`
+    headers['authorization'] = `Bearer ${token}`
   }
 
   if (options.body) {

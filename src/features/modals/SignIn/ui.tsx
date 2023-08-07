@@ -1,18 +1,38 @@
 import { Box, Button, Dialog, Typography, useTheme } from '@mui/material'
 
-import { BorderButton, Close, CopyTag } from 'shared/components'
-import { ModalCommonProps } from 'shared/types'
+import { useConnect } from 'entities/wallet'
 
-export const SignInModal: React.FC<ModalCommonProps> = ({
+import { BorderButton, Close, CopyTag } from 'shared/components'
+import { Account, ModalCommonProps } from 'shared/types'
+
+type Props = ModalCommonProps & {
+  account: Account
+  message: string
+}
+
+export const SignInModal: React.FC<Props> = ({
   isOpen,
   onClose,
+  account,
+  message,
 }) => {
+  const { signMessage, disconnect } = useConnect()
   const theme = useTheme()
+
+  const onSignIn = (): void => {
+    signMessage(account.chainType, message)
+    onClose()
+  }
+
+  const handleClose = (): void => {
+    disconnect(account.chainType)
+    onClose()
+  }
 
   return (
     <Dialog
       open={isOpen}
-      onClose={onClose}
+      onClose={handleClose}
       PaperProps={{
         sx: {
           width: '480px',
@@ -21,15 +41,14 @@ export const SignInModal: React.FC<ModalCommonProps> = ({
     >
       <Box sx={{ display: 'flex', gap: '16px' }}>
         <Typography variant='h4'>Sign In</Typography>
-        <CopyTag text='12345678910' />
+        <CopyTag text={account.address} />
       </Box>
       <Typography
         variant='body1'
         sx={{ mt: '16px' }}
         color={theme.custom.colors.neutral.text_secondary}
       >
-        Verify wallet ownership to access rewards and notifications. No ETH is
-        charged.
+        Verify wallet ownership to access rewards and notifications.
       </Typography>
 
       <Box sx={{ display: 'flex', gap: '8px', mt: '32px' }}>
@@ -41,11 +60,12 @@ export const SignInModal: React.FC<ModalCommonProps> = ({
           variant='contained'
           size='large'
           sx={{ width: '100%', padding: '0' }}
+          onClick={onSignIn}
         >
           Sign in
         </Button>
       </Box>
-      <Close onClose={onClose} />
+      <Close onClose={handleClose} />
     </Dialog>
   )
 }
